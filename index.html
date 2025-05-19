@@ -3,12 +3,16 @@
   <div style="font-size: 1.8rem; font-weight: bold; color: #2e7d32;">
     Plated <span style="color: #d84315;">Thoughts</span>
   </div>
-  <nav style="display: flex; gap: 1.5rem; font-size: 1rem;">
-    <a href="#" style="text-decoration: none; color: #333; font-weight: 500;">Home</a>
-    <a href="#" style="text-decoration: none; color: #333; font-weight: 500;">Delicacies</a>
-    <a href="#" style="text-decoration: none; color: #333; font-weight: 500;">Restaurants</a>
-    <a href="#" style="text-decoration: none; color: #333; font-weight: 500;">Recipes</a>
-    <a href="#" style="text-decoration: none; color: #333; font-weight: 500;">Search</a>
+  <nav style="display: flex; gap: 1.5rem; font-size: 1rem; align-items: center;">
+    <a href="#" class="nav-link active" data-tab="tab-home-custom" style="text-decoration: none; color: #333; font-weight: 500;">Home</a>
+    <a href="#" class="nav-link" data-tab="tab-restaurants-custom" style="text-decoration: none; color: #333; font-weight: 500;">Restaurants</a>
+    <a href="#" class="nav-link" data-tab="tab-recipes-custom" style="text-decoration: none; color: #333; font-weight: 500;">Recipes</a>
+    <!-- Search bar with dropdown -->
+    <div style="position: relative;">
+      <input id="food-search-input-custom" type="text" placeholder="Search food..." autocomplete="off"
+        style="padding: 0.4rem 1rem; border-radius: 5px; border: 1px solid #ccc; width: 180px;">
+      <div id="food-search-dropdown" style="display:none; position: absolute; top: 110%; left: 0; right: 0; background: #fff; border: 1px solid #ddd; border-radius: 0 0 6px 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); z-index: 10;"></div>
+    </div>
   </nav>
 </header>
 
@@ -29,7 +33,223 @@
   };
 </script>
 
-<!-- Content Section -->
+
+
+  </div>
+
+  <!-- Add Tab Content Sections (hidden by default) -->
+  <div id="tab-restaurants" style="display:none; padding:2rem;">
+    <h2 style="color:#2e7d32;">Nearby Filipino Restaurants</h2>
+    <iframe
+      src="https://www.google.com/maps/search/filipino+restaurants+near+me/@14.8537679,120.8158466,17z?entry=ttu&g_ep=EgoyMDI1MDUxMy4xIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D"
+      width="100%" height="400" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"></iframe>
+    <p style="margin-top:1rem;">Find authentic Filipino food near you!</p>
+    <div style="margin-top:2rem;">
+      <h3 style="color:#d84315;">Popular Dishes to Try at Restaurants:</h3>
+      <ul style="margin-left:1.5rem;">
+        <li><b>Lechon:</b> Crispy roasted pork, a Filipino fiesta staple.</li>
+        <li><b>Halo-Halo:</b> Shaved ice dessert with sweet beans, jellies, and leche flan.</li>
+        <li><b>Kare-Kare:</b> Oxtail stew in peanut sauce, served with bagoong.</li>
+        <li><b>Puto Bumbong:</b> Steamed purple rice cake, a Christmas favorite.</li>
+        <li><b>Bicol Express:</b> Pork in spicy coconut milk with chilies.</li>
+      </ul>
+      <p>Ask your server for these specialties or check the menu for regional delicacies!</p>
+    </div>
+  </div>
+
+<!-- Filipino Recipes & Step-by-Step Guides -->
+<div id="tab-recipes" style="display:none; padding:2rem;">
+  <h2 style="color:#2e7d32;">Filipino Recipes & Step-by-Step Guides</h2>
+
+  <ul style="list-style:disc; margin-left:1.5rem;">
+
+    <!-- Lechon -->
+    <li>
+      <b>Lechon:</b>
+      <br>
+      <b>Ingredients:</b>
+      <ul>
+        <li>1 whole pig (cleaned and prepared)</li>
+        <li>Salt and pepper</li>
+        <li>Garlic, crushed</li>
+        <li>Onion, quartered</li>
+        <li>Lemongrass (tanglad)</li>
+        <li>Bay leaves</li>
+        <li>Soy sauce (optional, for basting)</li>
+      </ul>
+      <b>Steps:</b>
+      <ol>
+        <li>Rub the pig inside and out with salt and pepper.</li>
+        <li>Stuff the belly with garlic, onion, lemongrass, and bay leaves.</li>
+        <li>Sew the belly shut and skewer the pig on a large bamboo stick.</li>
+        <li>Roast over charcoal, turning regularly, for 4–6 hours until skin is crispy and golden.</li>
+        <li>Baste with soy sauce if desired for extra flavor and color.</li>
+        <li>Serve hot with liver sauce or vinegar dip.</li>
+      </ol>
+    </li>
+
+    <!-- Halo-Halo -->
+    <li style="margin-top: 2rem;">
+      <b>Halo-Halo:</b>
+      <br>
+      <b>Ingredients:</b>
+      <ul>
+        <li>Shaved ice</li>
+        <li>Evaporated milk</li>
+        <li>Sweetened banana (saba), jackfruit, red mung beans</li>
+        <li>Nata de coco, macapuno, kaong</li>
+        <li>Leche flan</li>
+        <li>Ube halaya (purple yam)</li>
+        <li>Pinipig or rice crispies (optional)</li>
+        <li>Ice cream (ube or vanilla)</li>
+      </ul>
+      <b>Steps:</b>
+      <ol>
+        <li>Layer the sweetened fruits, beans, and jellies at the bottom of a tall glass.</li>
+        <li>Add a generous amount of shaved ice on top.</li>
+        <li>Pour evaporated milk over the ice.</li>
+        <li>Add leche flan, ube halaya, and ice cream.</li>
+        <li>Top with pinipig or crispies if desired. Mix before eating.</li>
+      </ol>
+    </li>
+
+    <!-- Kare-Kare -->
+    <li style="margin-top: 2rem;">
+      <b>Kare-Kare:</b>
+      <br>
+      <b>Ingredients:</b>
+      <ul>
+        <li>1 kg oxtail or beef shank</li>
+        <li>Peanut butter (or ground roasted peanuts)</li>
+        <li>Annatto (achuete) for color</li>
+        <li>Eggplant, pechay (bok choy), string beans</li>
+        <li>Banana heart (optional)</li>
+        <li>Garlic and onion</li>
+        <li>Bagoong (fermented shrimp paste), for serving</li>
+      </ul>
+      <b>Steps:</b>
+      <ol>
+        <li>Boil oxtail or beef until tender. Set aside broth.</li>
+        <li>In a pan, sauté garlic and onion. Add annatto for color.</li>
+        <li>Pour in the broth and peanut butter. Stir until smooth.</li>
+        <li>Add the boiled meat and simmer until sauce thickens.</li>
+        <li>Blanch vegetables separately and arrange on top before serving.</li>
+        <li>Serve hot with bagoong on the side.</li>
+      </ol>
+    </li>
+
+    <!-- Puto Bumbong -->
+    <li style="margin-top: 2rem;">
+      <b>Puto Bumbong:</b>
+      <br>
+      <b>Ingredients:</b>
+      <ul>
+        <li>Glutinous rice (pirurutong or purple variety)</li>
+        <li>Banana leaves for serving</li>
+        <li>Butter or margarine</li>
+        <li>Grated coconut</li>
+        <li>Brown sugar or muscovado</li>
+      </ul>
+      <b>Steps:</b>
+      <ol>
+        <li>Soak glutinous rice overnight, grind, and let dry until slightly damp.</li>
+        <li>Pack the rice mixture into bamboo tubes (bumbong).</li>
+        <li>Steam using a special puto bumbong steamer for about 10 minutes.</li>
+        <li>Carefully remove and place on banana leaves.</li>
+        <li>Spread with butter and top with grated coconut and brown sugar.</li>
+        <li>Best served hot and fresh.</li>
+      </ol>
+    </li>
+
+    <!-- Bicol Express -->
+    <li style="margin-top: 2rem;">
+      <b>Bicol Express:</b>
+      <br>
+      <b>Ingredients:</b>
+      <ul>
+        <li>500g pork belly, sliced</li>
+        <li>2 cups coconut milk</li>
+        <li>1 cup coconut cream</li>
+        <li>Garlic, onion, and ginger</li>
+        <li>Green and red chili peppers</li>
+        <li>Shrimp paste (bagoong alamang)</li>
+        <li>Salt and pepper to taste</li>
+      </ul>
+      <b>Steps:</b>
+      <ol>
+        <li>Sauté garlic, onion, and ginger in a pan.</li>
+        <li>Add pork and cook until lightly browned.</li>
+        <li>Pour in coconut milk and bring to a simmer.</li>
+        <li>Add shrimp paste and chili peppers. Stir well.</li>
+        <li>Simmer until pork is tender and sauce is slightly reduced.</li>
+        <li>Pour in coconut cream and cook for another 5–10 minutes.</li>
+        <li>Serve hot with rice.</li>
+      </ol>
+    </li>
+
+  </ul>
+</div>
+
+  <div id="tab-search" style="display:none; padding:2rem;">
+    <h2 style="color:#2e7d32;">Search Filipino Foods, Recipes & Places</h2>
+    <input id="food-search-input" type="text" placeholder="Search for food, recipe, or restaurant..." style="width:60%; padding:0.5rem; border-radius:5px; border:1px solid #ccc;">
+    <button id="food-search-btn" style="padding:0.5rem 1rem; background:#2e7d32; color:#fff; border:none; border-radius:5px; cursor:pointer;">Search</button>
+    <div id="search-results" style="margin-top:1.5rem;"></div>
+    <div style="margin-top:2rem; color:#555;">
+      <b>Try searching for:</b> Lechon, Halo-Halo, Kare-Kare, Puto Bumbong, Bicol Express, or any Filipino food!
+      <br>
+      <b>Tip:</b> Results include recipe links and places to try them nearby.
+    </div>
+  </div>
+
+  <style>
+  .tab-custom {
+    margin-right: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    background: #fff;
+    color: #2e7d32;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+  }
+  .tab-custom.active {
+    background-color: #2e7d32;
+    color: white;
+  }
+  .tab-content-custom {
+    display: none;
+    margin-top: 2rem;
+  }
+  .tab-content-custom.active {
+    display: block;
+  }
+  #food-search-dropdown {
+    max-height: 220px;
+    overflow-y: auto;
+  }
+  #food-search-dropdown div {
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.15s;
+  }
+  #food-search-dropdown div:last-child {
+    border-bottom: none;
+  }
+  #food-search-dropdown div:hover {
+    background: #f1f8f5;
+  }
+  </style>
+
+  <!-- Tab Content: Home -->
+  <div id="tab-home-custom" class="tab-content-custom active">
+    <h2>Welcome to Filipino Food Culture</h2>
+    <p>Explore the rich and diverse cuisine of the Philippines. Use the navigation above to discover restaurants, recipes, and more!</p>
+
+    <!-- Content Section -->
 <main style="padding: 2rem; font-family: 'Segoe UI', sans-serif; background-color: #fffef8;">
   <h2 style="font-size: 1.8rem; margin-bottom: 1rem; color: #2e7d32;">Top 5 Most Delicious Filipino Delicacies</h2>
 
@@ -40,39 +260,328 @@
       <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;"><span style="color: #d84315;">Lechon</span> – Crispy, Juicy, Iconic</h3>
       <p>Roasted whole pig with crunchy skin and flavorful meat. A staple in Filipino feasts and festivals.</p>
       <p style="font-size: 0.9rem; color: #999;">⏱️ 6 hrs | ❤️ 450 cal</p>
+      <div style="margin-top: 1rem; display: flex; gap: 1rem;">
+        <button style="padding: 0.4rem 1rem; border: none; background-color: #2e7d32; color: white; border-radius: 5px; cursor: pointer;">Read More</button>
+        <button style="padding: 0.4rem 1rem; border: 1px solid #2e7d32; background-color: transparent; color: #2e7d32; border-radius: 5px; cursor: pointer;">View Recipe</button>
+      </div>
     </div>
   </section>
 
   <!-- Grid of More Delicacies -->
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-    
-    <!-- Halo-Halo -->
+
+    <!-- Card Template Start -->
     <div style="border: 1px solid #ddd; background: #fff; padding: 1rem; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.03);">
       <img src="https://graceland.ph/wp-content/uploads/2023/05/HALO-HALO-SPECIAL.jpg" alt="Halo-Halo" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
       <h4 style="margin-top: 0.8rem; font-size: 1.2rem; color: #d84315;">Halo-Halo</h4>
       <p>A colorful dessert with shaved ice, milk, jellies, beans, and leche flan. Perfect for tropical heat.</p>
+      <div style="margin-top: 0.8rem; display: flex; gap: 0.5rem;">
+        <button style="padding: 0.4rem 0.8rem; background-color: #2e7d32; color: white; border: none; border-radius: 5px; cursor: pointer;">Read More</button>
+        <button style="padding: 0.4rem 0.8rem; background: transparent; color: #2e7d32; border: 1px solid #2e7d32; border-radius: 5px; cursor: pointer;">View Recipe</button>
+      </div>
     </div>
 
-    <!-- Kare-Kare -->
     <div style="border: 1px solid #ddd; background: #fff; padding: 1rem; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.03);">
       <img src="https://www.maggi.ph/sites/default/files/styles/home_stage_1500_700/public/srh_recipes/3eb553f39b3c0d978fbb90169fb3d6a5.jpg?h=78aab1d8&itok=QYxT7Gkf" alt="Kare-Kare" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
       <h4 style="margin-top: 0.8rem; font-size: 1.2rem; color: #d84315;">Kare-Kare</h4>
       <p>A rich peanut stew with oxtail, vegetables, and bagoong. Creamy, savory, and comforting.</p>
+      <div style="margin-top: 0.8rem; display: flex; gap: 0.5rem;">
+        <button style="padding: 0.4rem 0.8rem; background-color: #2e7d32; color: white; border: none; border-radius: 5px; cursor: pointer;">Read More</button>
+        <button style="padding: 0.4rem 0.8rem; background: transparent; color: #2e7d32; border: 1px solid #2e7d32; border-radius: 5px; cursor: pointer;">View Recipe</button>
+      </div>
     </div>
 
-    <!-- Puto Bumbong -->
     <div style="border: 1px solid #ddd; background: #fff; padding: 1rem; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.03);">
       <img src="https://kusinasecrets.com/wp-content/uploads/2024/11/image-108.webp" alt="Puto Bumbong" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
       <h4 style="margin-top: 0.8rem; font-size: 1.2rem; color: #d84315;">Puto Bumbong</h4>
       <p>Sticky purple rice steamed in bamboo tubes, topped with butter, sugar, and grated coconut.</p>
+      <div style="margin-top: 0.8rem; display: flex; gap: 0.5rem;">
+        <button style="padding: 0.4rem 0.8rem; background-color: #2e7d32; color: white; border: none; border-radius: 5px; cursor: pointer;">Read More</button>
+        <button style="padding: 0.4rem 0.8rem; background: transparent; color: #2e7d32; border: 1px solid #2e7d32; border-radius: 5px; cursor: pointer;">View Recipe</button>
+      </div>
     </div>
 
-    <!-- Bicol Express -->
     <div style="border: 1px solid #ddd; background: #fff; padding: 1rem; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.03);">
       <img src="https://i.pinimg.com/736x/24/66/a7/2466a703a0eca0348cef957904e7a48c.jpg" alt="Bicol Express" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
       <h4 style="margin-top: 0.8rem; font-size: 1.2rem; color: #d84315;">Bicol Express</h4>
       <p>A spicy coconut milk stew with pork, chilies, and shrimp paste. A fiery and flavorful favorite.</p>
+      <div style="margin-top: 0.8rem; display: flex; gap: 0.5rem;">
+        <button style="padding: 0.4rem 0.8rem; background-color: #2e7d32; color: white; border: none; border-radius: 5px; cursor: pointer;">Read More</button>
+        <button style="padding: 0.4rem 0.8rem; background: transparent; color: #2e7d32; border: 1px solid #2e7d32; border-radius: 5px; cursor: pointer;">View Recipe</button>
+      </div>
     </div>
 
   </div>
+  </div>
+
+  <!-- Tab Content: Restaurants -->
+  <div id="tab-restaurants-custom" class="tab-content-custom">
+    <h2 style="color:#2e7d32;">Nearby Filipino Restaurants</h2>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d7713.070998009263!2d120.8161247!3d14.8513053!3m2!1i1024!2i768!4f13.1!2m1!1srestaurants%20near%20me!5e0!3m2!1sen!2sph!4v1747621919315!5m2!1sen!2sph" 
+      width="100%" height="400" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <p style="margin-top:1rem;">Find authentic Filipino food near you!</p>
+    <div style="margin-top:2rem;">
+      <h3 style="color:#d84315;">Popular Dishes to Try at Restaurants:</h3>
+      <ul>
+        <li><b>Lechon:</b> Crispy roasted pork, a Filipino fiesta staple.</li>
+        <li><b>Halo-Halo:</b> Shaved ice dessert with sweet beans, jellies, and leche flan.</li>
+        <li><b>Kare-Kare:</b> Oxtail stew in peanut sauce, served with bagoong.</li>
+        <li><b>Puto Bumbong:</b> Steamed purple rice cake, a Christmas favorite.</li>
+        <li><b>Bicol Express:</b> Pork in spicy coconut milk with chilies.</li>
+      </ul>
+      <p>Ask your server for these specialties or check the menu for regional delicacies!</p>
+    </div>
+  </div>
+
+  <!-- Tab Content: Recipes -->
+  <div id="tab-recipes-custom" class="tab-content-custom">
+    <h2 style="color:#2e7d32;">Filipino Recipes & Step-by-Step Guides</h2>
+    <ul>
+      <!-- Lechon -->
+      <li>
+        <b>Lechon:</b>
+        <br><b>Ingredients:</b>
+        <ul>
+          <li>1 whole pig (cleaned and prepared)</li>
+          <li>Salt and pepper</li>
+          <li>Garlic, crushed</li>
+          <li>Onion, quartered</li>
+          <li>Lemongrass (tanglad)</li>
+          <li>Bay leaves</li>
+          <li>Soy sauce (optional, for basting)</li>
+        </ul>
+        <b>Steps:</b>
+        <ol>
+          <li>Rub the pig inside and out with salt and pepper.</li>
+          <li>Stuff the belly with garlic, onion, lemongrass, and bay leaves.</li>
+          <li>Sew the belly shut and skewer the pig on a large bamboo stick.</li>
+          <li>Roast over charcoal, turning regularly, for 4–6 hours until skin is crispy and golden.</li>
+          <li>Baste with soy sauce if desired for extra flavor and color.</li>
+          <li>Serve hot with liver sauce or vinegar dip.</li>
+        </ol>
+      </li>
+      <!-- Halo-Halo -->
+      <li style="margin-top: 2rem;">
+        <b>Halo-Halo:</b>
+        <br><b>Ingredients:</b>
+        <ul>
+          <li>Shaved ice</li>
+          <li>Evaporated milk</li>
+          <li>Sweetened banana (saba), jackfruit, red mung beans</li>
+          <li>Nata de coco, macapuno, kaong</li>
+          <li>Leche flan</li>
+          <li>Ube halaya (purple yam)</li>
+          <li>Pinipig or rice crispies (optional)</li>
+          <li>Ice cream (ube or vanilla)</li>
+        </ul>
+        <b>Steps:</b>
+        <ol>
+          <li>Layer the sweetened fruits, beans, and jellies at the bottom of a tall glass.</li>
+          <li>Add a generous amount of shaved ice on top.</li>
+          <li>Pour evaporated milk over the ice.</li>
+          <li>Add leche flan, ube halaya, and ice cream.</li>
+          <li>Top with pinipig or crispies if desired. Mix before eating.</li>
+        </ol>
+      </li>
+      <!-- Kare-Kare -->
+      <li style="margin-top: 2rem;">
+        <b>Kare-Kare:</b>
+        <br><b>Ingredients:</b>
+        <ul>
+          <li>1 kg oxtail or beef shank</li>
+          <li>Peanut butter (or ground roasted peanuts)</li>
+          <li>Annatto (achuete) for color</li>
+          <li>Eggplant, pechay (bok choy), string beans</li>
+          <li>Banana heart (optional)</li>
+          <li>Garlic and onion</li>
+          <li>Bagoong (fermented shrimp paste), for serving</li>
+        </ul>
+        <b>Steps:</b>
+        <ol>
+          <li>Boil oxtail or beef until tender. Set aside broth.</li>
+          <li>In a pan, sauté garlic and onion. Add annatto for color.</li>
+          <li>Pour in the broth and peanut butter. Stir until smooth.</li>
+          <li>Add the boiled meat and simmer until sauce thickens.</li>
+          <li>Blanch vegetables separately and arrange on top before serving.</li>
+          <li>Serve hot with bagoong on the side.</li>
+        </ol>
+      </li>
+      <!-- Puto Bumbong -->
+      <li style="margin-top: 2rem;">
+        <b>Puto Bumbong:</b>
+        <br><b>Ingredients:</b>
+        <ul>
+          <li>Glutinous rice (pirurutong or purple variety)</li>
+          <li>Banana leaves for serving</li>
+          <li>Butter or margarine</li>
+          <li>Grated coconut</li>
+          <li>Brown sugar or muscovado</li>
+        </ul>
+        <b>Steps:</b>
+        <ol>
+          <li>Soak glutinous rice overnight, grind, and let dry until slightly damp.</li>
+          <li>Pack the rice mixture into bamboo tubes (bumbong).</li>
+          <li>Steam using a special puto bumbong steamer for about 10 minutes.</li>
+          <li>Carefully remove and place on banana leaves.</li>
+          <li>Spread with butter and top with grated coconut and brown sugar.</li>
+          <li>Best served hot and fresh.</li>
+        </ol>
+      </li>
+      <!-- Bicol Express -->
+      <li style="margin-top: 2rem;">
+        <b>Bicol Express:</b>
+        <br><b>Ingredients:</b>
+        <ul>
+          <li>500g pork belly, sliced</li>
+          <li>2 cups coconut milk</li>
+          <li>1 cup coconut cream</li>
+          <li>Garlic, onion, and ginger</li>
+          <li>Green and red chili peppers</li>
+          <li>Shrimp paste (bagoong alamang)</li>
+          <li>Salt and pepper to taste</li>
+        </ul>
+        <b>Steps:</b>
+        <ol>
+          <li>Sauté garlic, onion, and ginger in a pan.</li>
+          <li>Add pork and cook until lightly browned.</li>
+          <li>Pour in coconut milk and bring to a simmer.</li>
+          <li>Add shrimp paste and chili peppers. Stir well.</li>
+          <li>Simmer until pork is tender and sauce is slightly reduced.</li>
+          <li>Pour in coconut cream and cook for another 5–10 minutes.</li>
+          <li>Serve hot with rice.</li>
+        </ol>
+      </li>
+    </ul>
+  </div>
+
+  <style>
+    .tab-content-custom { display: none; margin-top: 2rem; }
+    .tab-content-custom.active { display: block; }
+    .nav-link.active { color: #2e7d32 !important; border-bottom: 2px solid #2e7d32; }
+  </style>
+  <script>
+    // Navigation tab logic
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Remove active from all nav links
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        // Hide all tab contents
+        document.querySelectorAll('.tab-content-custom').forEach(tab => tab.classList.remove('active'));
+        // Activate clicked nav and corresponding tab
+        this.classList.add('active');
+        document.getElementById(this.getAttribute('data-tab')).classList.add('active');
+      });
+    });
+
+    // Food data for search
+    const foodDataCustom = [
+      {
+        name: "Lechon",
+        recipeTab: "Lechon",
+        mapQuery: "lechon restaurant near me"
+      },
+      {
+        name: "Halo-Halo",
+        recipeTab: "Halo-Halo",
+        mapQuery: "halo-halo near me"
+      },
+      {
+        name: "Kare-Kare",
+        recipeTab: "Kare-Kare",
+        mapQuery: "kare-kare restaurant near me"
+      },
+      {
+        name: "Puto Bumbong",
+        recipeTab: "Puto Bumbong",
+        mapQuery: "puto bumbong near me"
+      },
+      {
+        name: "Bicol Express",
+        recipeTab: "Bicol Express",
+        mapQuery: "bicol express restaurant near me"
+      }
+    ];
+
+    // Dropdown search logic
+    const searchInput = document.getElementById('food-search-input-custom');
+    const dropdown = document.getElementById('food-search-dropdown');
+
+    searchInput.addEventListener('input', function() {
+      const query = this.value.trim().toLowerCase();
+      if (!query) {
+        dropdown.style.display = 'none';
+        dropdown.innerHTML = '';
+        return;
+      }
+      const results = foodDataCustom.filter(item =>
+        item.name.toLowerCase().includes(query)
+      );
+      if (results.length === 0) {
+        dropdown.innerHTML = '<div style="color:#888;">No results found.</div>';
+        dropdown.style.display = 'block';
+        return;
+      }
+      dropdown.innerHTML = results.map(item =>
+        `<div>
+          <b>${item.name}</b><br>
+          <a href="#" class="view-recipe-link" data-recipe="${item.recipeTab}" style="color:#2e7d32;">View Recipe</a> |
+          <a href="#" class="find-nearby-link" data-map="${encodeURIComponent(item.mapQuery)}" style="color:#d84315;">Find Nearby</a>
+        </div>`
+      ).join('');
+      dropdown.style.display = 'block';
+
+      // Add event listeners for new dropdown links
+      dropdown.querySelectorAll('.view-recipe-link').forEach(link => {
+        link.onclick = function(e) {
+          e.preventDefault();
+          // Switch to Recipes tab and scroll to the recipe
+          document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+          document.querySelectorAll('.tab-content-custom').forEach(tab => tab.classList.remove('active'));
+          document.querySelector('.nav-link[data-tab="tab-recipes-custom"]').classList.add('active');
+          document.getElementById('tab-recipes-custom').classList.add('active');
+          // Scroll to the recipe inside the recipes tab
+          const recipeName = this.getAttribute('data-recipe');
+          const recipeList = document.querySelectorAll('#tab-recipes-custom li');
+          recipeList.forEach(li => {
+            if (li.textContent.trim().toLowerCase().startsWith(recipeName.toLowerCase())) {
+              li.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              li.style.background = '#f1f8f5';
+              setTimeout(() => { li.style.background = ''; }, 1200);
+            }
+          });
+          dropdown.style.display = 'none';
+        };
+      });
+
+      dropdown.querySelectorAll('.find-nearby-link').forEach(link => {
+        link.onclick = function(e) {
+          e.preventDefault();
+          // Switch to Restaurants tab and update the map src
+          document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+          document.querySelectorAll('.tab-content-custom').forEach(tab => tab.classList.remove('active'));
+          document.querySelector('.nav-link[data-tab="tab-restaurants-custom"]').classList.add('active');
+          document.getElementById('tab-restaurants-custom').classList.add('active');
+          // Update the map iframe src
+          const mapQuery = this.getAttribute('data-map');
+          const mapIframe = document.querySelector('#tab-restaurants-custom iframe');
+          mapIframe.src = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
+          dropdown.style.display = 'none';
+        };
+      });
+    });
+
+    // Hide dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!searchInput.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.display = 'none';
+      }
+    });
+
+    // Optional: Hide dropdown on blur
+    searchInput.addEventListener('blur', function() {
+      setTimeout(() => { dropdown.style.display = 'none'; }, 200);
+    });
+  </script>
 </main>
