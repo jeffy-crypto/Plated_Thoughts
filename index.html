@@ -1,16 +1,16 @@
 <!-- Top Navigation Bar -->
 <header style="display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; background-color: #fffbe7; border-bottom: 1px solid #ddd; font-family: 'Segoe UI', sans-serif;">
-  <div style="font-size: 1.8rem; font-weight: bold; color: #2e7d32;">
-    Plated <span style="color: #d84315;">Thoughts</span>
+  <div style="height: 48px; display: flex; align-items: center;">
+    <img src="LOGO.png" alt="Plated Thoughts Logo" style="height: 48px; width: auto; display: block;">
   </div>
   <nav style="display: flex; gap: 1.5rem; font-size: 1rem; align-items: center;">
     <a href="#" class="nav-link active" data-tab="tab-home-custom" style="text-decoration: none; color: #333; font-weight: 500;">Home</a>
     <a href="#" class="nav-link" data-tab="tab-restaurants-custom" style="text-decoration: none; color: #333; font-weight: 500;">Restaurants</a>
     <a href="#" class="nav-link" data-tab="tab-recipes-custom" style="text-decoration: none; color: #333; font-weight: 500;">Recipes</a>
     <!-- Search bar with dropdown -->
-    <div style="position: relative;">
-      <input id="food-search-input-custom" type="text" placeholder="Search food..." autocomplete="off"
-        style="padding: 0.4rem 1rem; border-radius: 5px; border: 1px solid #ccc; width: 180px;">
+    <div class="search-container">
+      <span class="material-icons search-icon" id="search-icon-btn">search</span>
+      <input id="food-search-input-custom" type="text" placeholder="Search food..." autocomplete="off" class="search-input-hide">
       <div id="food-search-dropdown" style="display:none; position: absolute; top: 110%; left: 0; right: 0; background: #fff; border: 1px solid #ddd; border-radius: 0 0 6px 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); z-index: 10;"></div>
     </div>
   </nav>
@@ -20,7 +20,7 @@
 <div id="tagline-banner" style="background-color: #fff; color: #2e7d32; display: flex; justify-content: center; align-items: center; padding: 0.8rem 2rem; font-size: 1rem; border-bottom: 1px solid #e0e0e0; position: relative; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
   <div style="display: flex; align-items: center; gap: 1rem;">
     <span style="font-weight: 500;">Discover stories, recipes & more about Filipino delicacies.</span>
-    <button style="background-color: transparent; border: 2px solid #2e7d32; border-radius: 999px; padding: 0.4rem 1.2rem; font-size: 0.95rem; cursor: pointer; color: #2e7d32; transition: all 0.2s ease;">
+    <button style="background-color: transparent; border: 2px solid #d84315; border-radius: 999px; padding: 0.4rem 1.2rem; font-size: 0.95rem; cursor: pointer; color: #d84315; transition: all 0.2s ease; font-family: 'Kanit', 'Kind Sans', Arial, sans-serif;">
       Sign Up
     </button>
   </div>
@@ -242,219 +242,684 @@
   #food-search-dropdown div:hover {
     background: #f1f8f5;
   }
+  /* Add margin to each side of the site in each tab */
+.tab-content-custom {
+  margin-left: 5vw;
+  margin-right: 5vw;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 900px) {
+  .tab-content-custom {
+    margin-left: 1vw;
+    margin-right: 1vw;
+  }
+}
+
+/* Footer styles */
+.site-footer {
+  width: 100%;
+  background: #fffbe7;
+  color: #2e7d32;
+  text-align: center;
+  padding: 1.5rem 0 1rem 0;
+  font-size: 1.05rem;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 3rem;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  letter-spacing: 0.5px;
+}
+.site-footer a {
+  color: #d84315;
+  text-decoration: none;
+  font-weight: 500;
+  margin: 0 0.5rem;
+}
+.site-footer a:hover {
+  text-decoration: underline;
+}
+.back-arrow-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  background: #ffffff;
+  color: #d84315;
+  border: 2px solid #d84315;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, border 0.18s;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(216,67,21,0.07);
+}
+.back-arrow-btn:hover {
+  background: #d84315;
+  color: #fff;
+  border-color: #d84315;
+}
+.back-arrow-btn .material-icons {
+  font-size: 2rem;
+  line-height: 1;
+  pointer-events: none;
+}
   </style>
 
   <!-- Tab Content: Home -->
-  <div id="tab-home-custom" class="tab-content-custom active">
-    <h2>Welcome to Filipino Food Culture</h2>
-    <p>Explore the rich and diverse cuisine of the Philippines. Use the navigation above to discover restaurants, recipes, and more!</p>
-
-    <!-- Content Section -->
-<main style="padding: 2rem; font-family: 'Segoe UI', sans-serif; background-color: #fffef8;">
-  <h2 style="font-size: 1.8rem; margin-bottom: 1rem; color: #2e7d32;">Top 5 Most Delicious Filipino Delicacies</h2>
-
-  <!-- Feature Block -->
-  <section style="display: flex; gap: 2rem; background-color: #fff; padding: 1.5rem; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 2rem;">
-    <img src="https://12compassiong4.wordpress.com/wp-content/uploads/2018/11/ricoslechon_large.jpg" alt="Lechon" style="width: 280px; height: auto; border-radius: 8px;">
-    <div>
-      <h3 style="font-size: 1.6rem; margin-bottom: 0.5rem;"><span style="color: #d84315;">Lechon</span> – Crispy, Juicy, Iconic</h3>
-      <p>Roasted whole pig with crunchy skin and flavorful meat. A staple in Filipino feasts and festivals.</p>
-      <p style="font-size: 0.9rem; color: #999;">⏱️ 6 hrs | ❤️ 450 cal</p>
-      <div style="margin-top: 1rem; display: flex; gap: 1rem;">
-        <button style="padding: 0.4rem 1rem; border: none; background-color: #2e7d32; color: white; border-radius: 5px; cursor: pointer;">Read More</button>
-        <button style="padding: 0.4rem 1rem; border: 1px solid #2e7d32; background-color: transparent; color: #2e7d32; border-radius: 5px; cursor: pointer;">View Recipe</button>
+<div class="tab-content-custom active" id="tab-home-custom">
+<div style="text-align: center; padding: 2rem; color: #2e7d32; border-radius: 12px; margin: 2rem auto; max-width: 800px;">
+  <h2 style="font-size: 3.5rem; font-weight: 700; margin-bottom: 1rem; color: #d84315; font-family: 'Kanit', 'Kind Sans', Arial, sans-serif !important;">Where Food Meets Memory</h2>
+  <p style="font-size: 1.2rem; font-weight: 400; color: #4e342e;">Discover some of the most beloved and iconic Filipino foods!</p>
+</div>
+  <div class="food-collage">
+    <div class="food-photo" style="grid-area: a;">
+      <img src="https://static01.nyt.com/images/2023/11/28/multimedia/ND-Lechon-Kawali-bflv/ND-Lechon-Kawali-bflv-superJumbo.jpg" alt="Lechon Kawali">
+      <div class="food-hover">
+        <div class="food-title">Lechon Kawali</div>
+        <div class="food-desc">A crispy deep-fried pork belly dish, Lechon Kawali is a popular Filipino comfort food, often served with liver sauce. Its roots trace back to Spanish colonial times and festive celebrations.</div>
       </div>
     </div>
-  </section>
-
-  <!-- Grid of More Delicacies -->
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-
-    <!-- Card Template Start -->
-    <div style="border: 1px solid #ddd; background: #fff; padding: 1rem; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.03);">
-      <img src="https://graceland.ph/wp-content/uploads/2023/05/HALO-HALO-SPECIAL.jpg" alt="Halo-Halo" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-      <h4 style="margin-top: 0.8rem; font-size: 1.2rem; color: #d84315;">Halo-Halo</h4>
-      <p>A colorful dessert with shaved ice, milk, jellies, beans, and leche flan. Perfect for tropical heat.</p>
-      <div style="margin-top: 0.8rem; display: flex; gap: 0.5rem;">
-        <button style="padding: 0.4rem 0.8rem; background-color: #2e7d32; color: white; border: none; border-radius: 5px; cursor: pointer;">Read More</button>
-        <button style="padding: 0.4rem 0.8rem; background: transparent; color: #2e7d32; border: 1px solid #2e7d32; border-radius: 5px; cursor: pointer;">View Recipe</button>
+    <div class="food-photo" style="grid-area: b;">
+      <img src="https://graceland.ph/wp-content/uploads/2023/05/HALO-HALO-SPECIAL.jpg" alt="Halo-Halo">
+      <div class="food-hover">
+        <div class="food-title">Halo-Halo</div>
+        <div class="food-desc">A colorful shaved ice dessert with sweet beans, jellies, fruits, and leche flan. Halo-Halo means "mix-mix" and is a summer staple in the Philippines.</div>
       </div>
     </div>
-
-    <div style="border: 1px solid #ddd; background: #fff; padding: 1rem; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.03);">
-      <img src="https://www.maggi.ph/sites/default/files/styles/home_stage_1500_700/public/srh_recipes/3eb553f39b3c0d978fbb90169fb3d6a5.jpg?h=78aab1d8&itok=QYxT7Gkf" alt="Kare-Kare" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-      <h4 style="margin-top: 0.8rem; font-size: 1.2rem; color: #d84315;">Kare-Kare</h4>
-      <p>A rich peanut stew with oxtail, vegetables, and bagoong. Creamy, savory, and comforting.</p>
-      <div style="margin-top: 0.8rem; display: flex; gap: 0.5rem;">
-        <button style="padding: 0.4rem 0.8rem; background-color: #2e7d32; color: white; border: none; border-radius: 5px; cursor: pointer;">Read More</button>
-        <button style="padding: 0.4rem 0.8rem; background: transparent; color: #2e7d32; border: 1px solid #2e7d32; border-radius: 5px; cursor: pointer;">View Recipe</button>
+    <div class="food-photo" style="grid-area: c;">
+      <img src="https://www.maggi.ph/sites/default/files/styles/home_stage_1500_700/public/srh_recipes/3eb553f39b3c0d978fbb90169fb3d6a5.jpg?h=78aab1d8&itok=QYxT7Gkf" alt="Kare-Kare">
+      <div class="food-hover">
+        <div class="food-title">Kare-Kare</div>
+        <div class="food-desc">A rich peanut stew with oxtail, vegetables, and bagoong. Kare-Kare is believed to have originated from Pampanga and is a highlight of Filipino feasts.</div>
       </div>
     </div>
-
-    <div style="border: 1px solid #ddd; background: #fff; padding: 1rem; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.03);">
-      <img src="https://kusinasecrets.com/wp-content/uploads/2024/11/image-108.webp" alt="Puto Bumbong" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-      <h4 style="margin-top: 0.8rem; font-size: 1.2rem; color: #d84315;">Puto Bumbong</h4>
-      <p>Sticky purple rice steamed in bamboo tubes, topped with butter, sugar, and grated coconut.</p>
-      <div style="margin-top: 0.8rem; display: flex; gap: 0.5rem;">
-        <button style="padding: 0.4rem 0.8rem; background-color: #2e7d32; color: white; border: none; border-radius: 5px; cursor: pointer;">Read More</button>
-        <button style="padding: 0.4rem 0.8rem; background: transparent; color: #2e7d32; border: 1px solid #2e7d32; border-radius: 5px; cursor: pointer;">View Recipe</button>
+    <div class="food-photo" style="grid-area: d;">
+      <img src="https://kusinasecrets.com/wp-content/uploads/2024/11/image-108.webp" alt="Puto Bumbong">
+      <div class="food-hover">
+        <div class="food-title">Puto Bumbong</div>
+        <div class="food-desc">A purple rice cake steamed in bamboo tubes, Puto Bumbong is a Christmas delicacy enjoyed after Simbang Gabi (night mass).</div>
       </div>
     </div>
-
-    <div style="border: 1px solid #ddd; background: #fff; padding: 1rem; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,0.03);">
-      <img src="https://i.pinimg.com/736x/24/66/a7/2466a703a0eca0348cef957904e7a48c.jpg" alt="Bicol Express" style="width: 100%; height: 180px; object-fit: cover; border-radius: 6px;">
-      <h4 style="margin-top: 0.8rem; font-size: 1.2rem; color: #d84315;">Bicol Express</h4>
-      <p>A spicy coconut milk stew with pork, chilies, and shrimp paste. A fiery and flavorful favorite.</p>
-      <div style="margin-top: 0.8rem; display: flex; gap: 0.5rem;">
-        <button style="padding: 0.4rem 0.8rem; background-color: #2e7d32; color: white; border: none; border-radius: 5px; cursor: pointer;">Read More</button>
-        <button style="padding: 0.4rem 0.8rem; background: transparent; color: #2e7d32; border: 1px solid #2e7d32; border-radius: 5px; cursor: pointer;">View Recipe</button>
+    <div class="food-photo" style="grid-area: e;">
+      <img src="https://i.pinimg.com/736x/24/66/a7/2466a703a0eca0348cef957904e7a48c.jpg" alt="Bicol Express">
+      <div class="food-hover">
+        <div class="food-title">Bicol Express</div>
+        <div class="food-desc">A spicy stew of pork, coconut milk, and chilies, Bicol Express hails from the Bicol region, famous for its love of spicy food.</div>
       </div>
     </div>
-
+    <div class="food-photo" style="grid-area: f;">
+      <img src="https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/arufwdik/8e48f9d7-4ab7-4ad2-b6b6-8aee7b3cb08e.png" alt="Sinigang na Baboy">
+      <div class="food-hover">
+        <div class="food-title">Sinigang na Baboy</div>
+        <div class="food-desc">A sour pork soup made with tamarind, Sinigang is a classic Filipino comfort food, known for its refreshing and tangy broth.</div>
+      </div>
+    </div>
+    <div class="food-photo" style="grid-area: g;">
+      <img src="https://www.seriouseats.com/thmb/uc8nb040OwgXekR9obuhEqm8WoI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__10__20191023-chicken-adobo-vicky-wasik-19-12ce105a2e1a44dfb1e2673775118064.jpg" alt="Chicken Adobo">
+      <div class="food-hover">
+        <div class="food-title">Chicken Adobo</div>
+        <div class="food-desc">The unofficial national dish, Adobo is chicken braised in vinegar, soy sauce, garlic, and spices. Its origins predate Spanish colonization.</div>
+      </div>
+    </div>
+    <div class="food-photo" style="grid-area: h;">
+      <img src="https://marleyspoon.com/media/recipes/107504/main_photos/large/taste_trip_chicken_pancit_canton-c919d9cf60a6c73372db22d2a91b3e2c.jpeg" alt="Pancit Canton">
+      <div class="food-hover">
+        <div class="food-title">Pancit Canton</div>
+        <div class="food-desc">A stir-fried noodle dish with vegetables, meat, and seafood, Pancit Canton is inspired by Chinese cuisine and is a birthday staple.</div>
+      </div>
+    </div>
+    <div class="food-photo" style="grid-area: i;">
+      <img src="https://static01.nyt.com/images/2016/11/11/dining/COOKING-BIBINGKA1/COOKING-FILIPINO1-superJumbo.jpg" alt="Bibingka">
+      <div class="food-hover">
+        <div class="food-title">Bibingka</div>
+        <div class="food-desc">A soft rice cake baked in clay pots and topped with salted egg and cheese, Bibingka is a Christmas favorite in the Philippines.</div>
+      </div>
+    </div>
+    <div class="food-photo" style="grid-area: j;">
+      <img src="https://assets.unileversolutions.com/recipes-v2/166515.jpg" alt="Lumpiang Shanghai">
+      <div class="food-hover">
+        <div class="food-title">Lumpiang Shanghai</div>
+        <div class="food-desc">Filipino spring rolls filled with ground pork and vegetables, Lumpiang Shanghai is a party favorite and always present at gatherings.</div>
+      </div>
+    </div>
+    <div class="food-photo" style="grid-area: k;">
+      <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2021/05/18/Jerome-Grant-Filipino-Spaghetti_s4x3.jpg.rend.hgtvcom.1280.1280.suffix/1621343901219.webp" alt="Filipino Spaghetti">
+      <div class="food-hover">
+        <div class="food-title">Filipino Spaghetti</div>
+        <div class="food-desc">A sweet-style spaghetti with hotdogs and cheese, this dish is a Filipino adaptation of the Italian classic, loved by kids and adults alike.</div>
+      </div>
+    </div>
+    <div class="food-photo" style="grid-area: l;">
+      <img src="https://kusinasecrets.com/wp-content/uploads/2024/11/u3317447599_httpss.mj_.runBpvmChIMZ78_top_down_view_of_Filipin_353efd2d-3aae-4a14-967f-28d3340067da_2.jpg" alt="Menudo">
+      <div class="food-hover">
+        <div class="food-title">Menudo</div>
+        <div class="food-desc">A tomato-based stew with pork, liver, potatoes, and carrots, Menudo is a staple at Filipino fiestas and family gatherings.</div>
+      </div>
+    </div>
+    <div class="food-photo" style="grid-area: m;">
+      <img src="https://themayakitchen.com/wp-content/uploads/2019/10/TURON.jpg" alt="Turon">
+      <div class="food-hover">
+        <div class="food-title">Turon</div>
+        <div class="food-desc">A sweet snack of caramelized banana and jackfruit wrapped in spring roll wrapper and fried to golden perfection.</div>
+      </div>
+    </div>
+    <div class="food-photo" style="grid-area: n;">
+      <img src="https://kapampanganku.com/v3/wp-content/uploads/2021/02/pochero.png" alt="Pochero">
+      <div class="food-hover">
+        <div class="food-title">Pochero</div>
+        <div class="food-desc">A hearty stew of beef, plantains, potatoes, and vegetables, Pochero is influenced by Spanish cocido and is a comfort food in many regions.</div>
+      </div>
+    </div>
+    <div class="food-photo" style="grid-area: o;">
+      <img src="https://flouredframe.com/wp-content/uploads/2020/10/vegan-ensaymada-ft-image-1200x1200-1.jpg" alt="Ensaymada">
+      <div class="food-hover">
+        <div class="food-title">Ensaymada</div>
+        <div class="food-desc">A soft, sweet bread topped with butter, sugar, and cheese, Ensaymada is a Filipino adaptation of the Spanish ensaimada.</div>
+      </div>
+    </div>
+    <div class="food-photo" style="grid-area: p;">
+      <img src="https://www.angsarap.net/wp-content/uploads/2012/01/cassava-cake-moms-version.jpg" alt="Cassava Cake">
+      <div class="food-hover">
+        <div class="food-title">Cassava Cake</div>
+        <div class="food-desc">A moist cake made from grated cassava, coconut milk, and condensed milk, Cassava Cake is a popular merienda or dessert.</div>
+      </div>
+    </div>
   </div>
-  </div>
+</div>
 
-  <!-- Tab Content: Restaurants -->
-  <div id="tab-restaurants-custom" class="tab-content-custom">
-    <h2 style="color:#2e7d32;">Nearby Filipino Restaurants</h2>
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d7713.070998009263!2d120.8161247!3d14.8513053!3m2!1i1024!2i768!4f13.1!2m1!1srestaurants%20near%20me!5e0!3m2!1sen!2sph!4v1747621919315!5m2!1sen!2sph" 
-      width="100%" height="400" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <p style="margin-top:1rem;">Find authentic Filipino food near you!</p>
-    <div style="margin-top:2rem;">
-      <h3 style="color:#d84315;">Popular Dishes to Try at Restaurants:</h3>
-      <ul>
-        <li><b>Lechon:</b> Crispy roasted pork, a Filipino fiesta staple.</li>
-        <li><b>Halo-Halo:</b> Shaved ice dessert with sweet beans, jellies, and leche flan.</li>
-        <li><b>Kare-Kare:</b> Oxtail stew in peanut sauce, served with bagoong.</li>
-        <li><b>Puto Bumbong:</b> Steamed purple rice cake, a Christmas favorite.</li>
-        <li><b>Bicol Express:</b> Pork in spicy coconut milk with chilies.</li>
-      </ul>
-      <p>Ask your server for these specialties or check the menu for regional delicacies!</p>
-    </div>
-  </div>
+<style>
+.food-collage {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 320px; /* Increased from 220px to 320px */
+  gap: 22px; /* Slightly bigger gap for larger images */
+  margin-top: 2.5rem;
+  grid-template-areas:
+    'a a b b d c'
+    'a a e f f c'
+    'k k e i g g'
+    'o n n m g g'
+    'j h h h l l'
+    'j h h h p p';
+}
+.food-photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.18s;
+}
+.food-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.3s;
+}
+.food-photo:hover img {
+  filter: brightness(0.7) blur(1px);
+  transform: scale(1.04);
+}
+.food-hover {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.65); /* Lowered opacity */
+  color: #fff;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1.2rem 1.5rem;
+  text-align: left;
+  transition: opacity 0.25s;
+  pointer-events: none;
+}
+.food-photo:hover .food-hover {
+  opacity: 1;
+  pointer-events: auto;
+}
+.food-title, .food-desc {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: 
+    opacity 0.45s cubic-bezier(.77,0,.18,1),
+    transform 0.45s cubic-bezier(.77,0,.18,1);
+}
+.food-photo:hover .food-title,
+.food-photo:hover .food-desc {
+  opacity: 1;
+  transform: translateX(0);
+}
+.food-title {
+  font-size: 1.35rem;
+  font-weight: bold;
+  margin-bottom: 0.7rem;
+  letter-spacing: 1px;
+  color: #ffe082;
+  text-shadow: 0 2px 8px #222;
+  transition-delay: 0.08s;
+}
+.food-desc {
+  font-size: 1.02rem;
+  color: #fffde7;
+  text-shadow: 0 1px 6px #222;
+  transition-delay: 0.18s;
+}
+</style>
+<!-- ...existing code... -->
+
+<!-- Tab Content: Restaurants -->
+<div class="tab-content-custom" id="tab-restaurants-custom">
+  
+  <iframe 
+    id="restaurants-map"
+    src="https://www.google.com/maps?q=La+Loma+Quezon+City&output=embed"
+    width="100%" height="400" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <ul style="margin-top:2rem; font-size:1.15rem; line-height:1.7;">
+    <b>
+      <h2 style="color:#2e7d32;">Famous Places to Visit for Filipino Foods</h2>
+    </li>
+    <li style="margin-top:1.2rem;">
+      <a href="#" class="restaurant-link" data-map="La Loma Quezon City" style="color:#2e7d32; font-weight:bold; text-decoration:underline;">La Loma, Quezon City</a>
+      – Known as the "Lechon Capital of the Philippines," La Loma is lined with legendary lechon houses like <span style="color:#d84315;">Elar's Lechon</span> and <span style="color:#d84315;">Ping Ping's Lechon</span>.
+    </li>
+    <li style="margin-top:1.2rem;">
+      <a href="#" class="restaurant-link" data-map="Razon's of Guagua" style="color:#2e7d32; font-weight:bold; text-decoration:underline;">Razon’s of Guagua (Pampanga & Metro Manila)</a>
+      – Famous for their creamy <span style="color:#d84315;">Halo-Halo</span> and Kapampangan delicacies.
+    </li>
+    <li style="margin-top:1.2rem;">
+      <a href="#" class="restaurant-link" data-map="Aristocrat Restaurant Roxas Blvd Manila" style="color:#2e7d32; font-weight:bold; text-decoration:underline;">Aristocrat Restaurant (Roxas Blvd, Manila)</a>
+      – A historic spot for classic Filipino dishes like <span style="color:#d84315;">Chicken Barbecue</span> and <span style="color:#d84315;">Kare-Kare</span>.
+    </li>
+    <li style="margin-top:1.2rem;">
+      <a href="#" class="restaurant-link" data-map="Milky Way Cafe Makati" style="color:#2e7d32; font-weight:bold; text-decoration:underline;">Milky Way Café (Makati)</a>
+      – Renowned for <span style="color:#d84315;">Kare-Kare</span>, <span style="color:#d84315;">Pancit Luglug</span>, and <span style="color:#d84315;">Halo-Halo</span>.
+    </li>
+    <li style="margin-top:1.2rem;">
+      <a href="#" class="restaurant-link" data-map="Aling Lucing Angeles City Pampanga" style="color:#2e7d32; font-weight:bold; text-decoration:underline;">Aling Lucing’s (Angeles City, Pampanga)</a>
+      – The birthplace of <span style="color:#d84315;">Sisig</span>, a must-visit for foodies.
+    </li>
+    <li style="margin-top:1.2rem;">
+      <a href="#" class="restaurant-link" data-map="Binondo Manila" style="color:#2e7d32; font-weight:bold; text-decoration:underline;">Binondo, Manila</a>
+      – The world’s oldest Chinatown, famous for <span style="color:#d84315;">Lumpiang Shanghai</span>, <span style="color:#d84315;">Pancit Canton</span>, and Filipino-Chinese fusion.
+    </li>
+    <li style="margin-top:1.2rem;">
+      <a href="#" class="restaurant-link" data-map="Dolor's Kakanin Malabon" style="color:#2e7d32; font-weight:bold; text-decoration:underline;">Dolor’s Kakanin (Malabon)</a>
+      – The go-to place for traditional Filipino rice cakes like <span style="color:#d84315;">Bibingka</span> and <span style="color:#d84315;">Kakanin</span>.
+    </li>
+    <li style="margin-top:1.2rem;">
+      <a href="#" class="restaurant-link" data-map="Legazpi City Bicol" style="color:#2e7d32; font-weight:bold; text-decoration:underline;">Legazpi City, Bicol</a>
+      – For authentic <span style="color:#d84315;">Bicol Express</span> and spicy coconut-based dishes.
+    </li>
+    <li style="margin-top:1.2rem;">
+      <a href="#" class="restaurant-link" data-map="Via Mare Philippines" style="color:#2e7d32; font-weight:bold; text-decoration:underline;">Via Mare (multiple branches)</a>
+      – Famous for <span style="color:#d84315;">Puto Bumbong</span>, <span style="color:#d84315;">Bibingka</span>, and other merienda classics.
+    </li>
+    <li style="margin-top:1.2rem;">
+      <a href="#" class="restaurant-link" data-map="Maty's Tapsilog Paranaque" style="color:#2e7d32; font-weight:bold; text-decoration:underline;">Maty’s Tapsilog (Parañaque)</a>
+      – A legendary spot for <span style="color:#d84315;">Tapsilog</span> and Filipino breakfast favorites.
+    </li>
+  </ul>
+  <p style="margin-top:2.5rem; color:#4e342e; font-size:1.05rem;">
+    Explore these places for an authentic taste of Filipino cuisine and culture!
+  </p>
+</div>
+
+<script>
+document.querySelectorAll('.restaurant-link').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const mapQuery = encodeURIComponent(this.getAttribute('data-map'));
+    const mapIframe = document.getElementById('restaurants-map');
+    if (mapIframe) {
+      mapIframe.src = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
+      // Smooth scroll to the map
+      mapIframe.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  });
+});
+</script>
 
   <!-- Tab Content: Recipes -->
-  <div id="tab-recipes-custom" class="tab-content-custom">
-    <h2 style="color:#2e7d32;">Filipino Recipes & Step-by-Step Guides</h2>
-    <ul>
-      <!-- Lechon -->
-      <li>
-        <b>Lechon:</b>
-        <br><b>Ingredients:</b>
-        <ul>
-          <li>1 whole pig (cleaned and prepared)</li>
-          <li>Salt and pepper</li>
-          <li>Garlic, crushed</li>
-          <li>Onion, quartered</li>
-          <li>Lemongrass (tanglad)</li>
-          <li>Bay leaves</li>
-          <li>Soy sauce (optional, for basting)</li>
-        </ul>
-        <b>Steps:</b>
-        <ol>
-          <li>Rub the pig inside and out with salt and pepper.</li>
-          <li>Stuff the belly with garlic, onion, lemongrass, and bay leaves.</li>
-          <li>Sew the belly shut and skewer the pig on a large bamboo stick.</li>
-          <li>Roast over charcoal, turning regularly, for 4–6 hours until skin is crispy and golden.</li>
-          <li>Baste with soy sauce if desired for extra flavor and color.</li>
-          <li>Serve hot with liver sauce or vinegar dip.</li>
-        </ol>
-      </li>
-      <!-- Halo-Halo -->
-      <li style="margin-top: 2rem;">
-        <b>Halo-Halo:</b>
-        <br><b>Ingredients:</b>
-        <ul>
-          <li>Shaved ice</li>
-          <li>Evaporated milk</li>
-          <li>Sweetened banana (saba), jackfruit, red mung beans</li>
-          <li>Nata de coco, macapuno, kaong</li>
-          <li>Leche flan</li>
-          <li>Ube halaya (purple yam)</li>
-          <li>Pinipig or rice crispies (optional)</li>
-          <li>Ice cream (ube or vanilla)</li>
-        </ul>
-        <b>Steps:</b>
-        <ol>
-          <li>Layer the sweetened fruits, beans, and jellies at the bottom of a tall glass.</li>
-          <li>Add a generous amount of shaved ice on top.</li>
-          <li>Pour evaporated milk over the ice.</li>
-          <li>Add leche flan, ube halaya, and ice cream.</li>
-          <li>Top with pinipig or crispies if desired. Mix before eating.</li>
-        </ol>
-      </li>
-      <!-- Kare-Kare -->
-      <li style="margin-top: 2rem;">
-        <b>Kare-Kare:</b>
-        <br><b>Ingredients:</b>
-        <ul>
-          <li>1 kg oxtail or beef shank</li>
-          <li>Peanut butter (or ground roasted peanuts)</li>
-          <li>Annatto (achuete) for color</li>
-          <li>Eggplant, pechay (bok choy), string beans</li>
-          <li>Banana heart (optional)</li>
-          <li>Garlic and onion</li>
-          <li>Bagoong (fermented shrimp paste), for serving</li>
-        </ul>
-        <b>Steps:</b>
-        <ol>
-          <li>Boil oxtail or beef until tender. Set aside broth.</li>
-          <li>In a pan, sauté garlic and onion. Add annatto for color.</li>
-          <li>Pour in the broth and peanut butter. Stir until smooth.</li>
-          <li>Add the boiled meat and simmer until sauce thickens.</li>
-          <li>Blanch vegetables separately and arrange on top before serving.</li>
-          <li>Serve hot with bagoong on the side.</li>
-        </ol>
-      </li>
-      <!-- Puto Bumbong -->
-      <li style="margin-top: 2rem;">
-        <b>Puto Bumbong:</b>
-        <br><b>Ingredients:</b>
-        <ul>
-          <li>Glutinous rice (pirurutong or purple variety)</li>
-          <li>Banana leaves for serving</li>
-          <li>Butter or margarine</li>
-          <li>Grated coconut</li>
-          <li>Brown sugar or muscovado</li>
-        </ul>
-        <b>Steps:</b>
-        <ol>
-          <li>Soak glutinous rice overnight, grind, and let dry until slightly damp.</li>
-          <li>Pack the rice mixture into bamboo tubes (bumbong).</li>
-          <li>Steam using a special puto bumbong steamer for about 10 minutes.</li>
-          <li>Carefully remove and place on banana leaves.</li>
-          <li>Spread with butter and top with grated coconut and brown sugar.</li>
-          <li>Best served hot and fresh.</li>
-        </ol>
-      </li>
-      <!-- Bicol Express -->
-      <li style="margin-top: 2rem;">
-        <b>Bicol Express:</b>
-        <br><b>Ingredients:</b>
-        <ul>
-          <li>500g pork belly, sliced</li>
-          <li>2 cups coconut milk</li>
-          <li>1 cup coconut cream</li>
-          <li>Garlic, onion, and ginger</li>
-          <li>Green and red chili peppers</li>
-          <li>Shrimp paste (bagoong alamang)</li>
-          <li>Salt and pepper to taste</li>
-        </ul>
-        <b>Steps:</b>
-        <ol>
-          <li>Sauté garlic, onion, and ginger in a pan.</li>
-          <li>Add pork and cook until lightly browned.</li>
-          <li>Pour in coconut milk and bring to a simmer.</li>
-          <li>Add shrimp paste and chili peppers. Stir well.</li>
-          <li>Simmer until pork is tender and sauce is slightly reduced.</li>
-          <li>Pour in coconut cream and cook for another 5–10 minutes.</li>
-          <li>Serve hot with rice.</li>
-        </ol>
-      </li>
-    </ul>
+  <div class="tab-content-custom" id="tab-recipes-custom">
+  <h2 style="color:#2e7d32;">Filipino Food Recipes</h2>
+  <div class="recipe-list-grid">
+    <!-- Example for each food item; repeat for all foods in your home collage -->
+    <div class="recipe-card" data-food="Lechon Kawali">
+      <div class="recipe-card-img-wrap">
+        <img src="https://static01.nyt.com/images/2023/11/28/multimedia/ND-Lechon-Kawali-bflv/ND-Lechon-Kawali-bflv-superJumbo.jpg" alt="Lechon Kawali">
+        <button class="heart-btn" title="Add to Favorites"><span class="material-icons">favorite_border</span></button>
+        <button class="share-btn" title="Share"><span class="material-icons">share</span></button>
+      </div>
+      <div class="recipe-card-title">Lechon Kawali</div>
+      <button class="add-fav-btn">Add to Favorites</button>
+    </div>
+    <div class="recipe-card" data-food="Halo-Halo">
+      <div class="recipe-card-img-wrap">
+        <img src="https://graceland.ph/wp-content/uploads/2023/05/HALO-HALO-SPECIAL.jpg" alt="Halo-Halo">
+        <button class="heart-btn" title="Add to Favorites"><span class="material-icons">favorite_border</span></button>
+        <button class="share-btn" title="Share"><span class="material-icons">share</span></button>
+      </div>
+      <div class="recipe-card-title">Halo-Halo</div>
+      <button class="add-fav-btn">Add to Favorites</button>
+    </div>
+    <div class="recipe-card" data-food="Kare-Kare">
+      <div class="recipe-card-img-wrap">
+        <img src="https://www.maggi.ph/sites/default/files/styles/home_stage_1500_700/public/srh_recipes/3eb553f39b3c0d978fbb90169fb3d6a5.jpg?h=78aab1d8&itok=QYxT7Gkf" alt="Kare-Kare">
+        <button class="heart-btn" title="Add to Favorites"><span class="material-icons">favorite_border</span></button>
+        <button class="share-btn" title="Share"><span class="material-icons">share</span></button>
+      </div>
+      <div class="recipe-card-title">Kare-Kare</div>
+      <button class="add-fav-btn">Add to Favorites</button>
+    </div>
+    <div class="recipe-card" data-food="Puto Bumbong">
+      <div class="recipe-card-img-wrap">
+        <img src="https://kusinasecrets.com/wp-content/uploads/2024/11/image-108.webp" alt="Puto Bumbong">
+        <button class="heart-btn" title="Add to Favorites"><span class="material-icons">favorite_border</span></button>
+        <button class="share-btn" title="Share"><span class="material-icons">share</span></button>
+      </div>
+      <div class="recipe-card-title">Puto Bumbong</div>
+      <button class="add-fav-btn">Add to Favorites</button>
+    </div>
+    <div class="recipe-card" data-food="Bicol Express">
+      <div class="recipe-card-img-wrap">
+        <img src="https://i.pinimg.com/736x/24/66/a7/2466a703a0eca0348cef957904e7a48c.jpg" alt="Bicol Express">
+        <button class="heart-btn" title="Add to Favorites"><span class="material-icons">favorite_border</span></button>
+        <button class="share-btn" title="Share"><span class="material-icons">share</span></button>
+      </div>
+      <div class="recipe-card-title">Bicol Express</div>
+      <button class="add-fav-btn">Add to Favorites</button>
+    </div>
+    <div class="recipe-card" data-food="Sinigang na Baboy">
+      <div class="recipe-card-img-wrap">
+        <img src="https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/arufwdik/8e48f9d7-4ab7-4ad2-b6b6-8aee7b3cb08e.png" alt="Sinigang na Baboy">
+        <button class="heart-btn" title="Add to Favorites"><span class="material-icons">favorite_border</span></button>
+        <button class="share-btn" title="Share"><span class="material-icons">share</span></button>
+      </div>
+      <div class="recipe-card-title">Sinigang na Baboy</div>
+      <button class="add-fav-btn">Add to Favorites</button>
+    </div>
+    <div class="recipe-card" data-food="Chicken Adobo">
+      <div class="recipe-card-img-wrap">
+        <img src="https://www.seriouseats.com/thmb/uc8nb040OwgXekR9obuhEqm8WoI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__10__20191023-chicken-adobo-vicky-wasik-19-12ce105a2e1a44dfb1e2673775118064.jpg" alt="Chicken Adobo">
+        <button class="heart-btn" title="Add to Favorites"><span class="material-icons">favorite_border</span></button>
+        <button class="share-btn" title="Share"><span class="material-icons">share</span></button>
+      </div>
+      <div class="recipe-card-title">Chicken Adobo</div>
+      <button class="add-fav-btn">Add to Favorites</button>
+    </div>
+    <div class="recipe-card" data-food="Pancit Canton">
+      <div class="recipe-card-img-wrap">
+        <img src="https://marleyspoon.com/media/recipes/107504/main_photos/large/taste_trip_chicken_pancit_canton-c919d9cf60a6c73372db22d2a91b3e2c.jpeg" alt="Pancit Canton">
+        <button class="heart-btn" title="Add to Favorites"><span class="material-icons">favorite_border</span></button>
+        <button class="share-btn" title="Share"><span class="material-icons">share</span></button>
+      </div>
+      <div class="recipe-card-title">Pancit Canton</div>
+      <button class="add-fav-btn">Add to Favorites</button>
+    </div>
+    <div class="recipe-card" data-food="Bibingka">
+      <div class="recipe-card-img-wrap">
+        <img src="https://static01.nyt.com/images/2016/11/11/dining/COOKING-BIBINGKA1/COOKING-FILIPINO1-superJumbo.jpg" alt="Bibingka">
+        <button class="heart-btn" title="Add to Favorites"><span class="material-icons">favorite_border</span></button>
+        <button class="share-btn" title="Share"><span class="material-icons">share</span></button>
+      </div>
+      <div class="recipe-card-title">Bibingka</div>
+      <button class="add-fav-btn">Add to Favorites</button>
+    </div>
+    <div class="recipe-card" data-food="Lumpiang Shanghai">
+      <div class="recipe-card-img-wrap">
+        <img src="https://assets.unileversolutions.com/recipes-v2/166515.jpg" alt="Lumpiang Shanghai">
+        <button class="heart-btn" title="Add to Favorites"><span class="material-icons">favorite_border</span></button>
+        <button class="share-btn" title="Share"><span class="material-icons">share</span></button>
+      </div>
+      <div class="recipe-card-title">Lumpiang Shanghai</div>
+      <button class="add-fav-btn">Add to Favorites</button>
+    </div>
+    <div class="recipe-card" data-food="Filipino Spaghetti">
+      <div class="recipe-card-img-wrap">
+        <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2021/05/18/Jerome-Grant-Filipino-Spaghetti_s4x3.jpg.rend.hgtvcom.1280.1280.suffix/1621343901219.webp" alt="Filipino Spaghetti">
+        <button class="heart-btn" title="Add to Favorites"><span class="material-icons">favorite_border</span></button>
+        <button class="share-btn" title="Share"><span class="material-icons">share</span></button>
+      </div>
+      <div class="recipe-card-title">Filipino Spaghetti</div>
+      <button class="add-fav-btn">Add to Favorites</button>
+    </div>
+    <div class="recipe-card" data-food="Menudo">
+      <div class="recipe-card-img-wrap">
+        <img src="https://kusinasecrets.com/wp-content/uploads/2024/11/u3317447599_httpss.mj_.runBpvmChIMZ78_top_down_view_of_Filipin_353efd2d-3aae-4a14-967f-28d3340067da_2.jpg" alt="Menudo">
+        <button class="heart-btn" title="Add to Favorites"><span class="material-icons">favorite_border</span></button>
+        <button class="share-btn" title="Share"><span class="material-icons">share</span></button>
+      </div>
+      <div class="recipe-card-title">Menudo</div>
+      <button class="add-fav-btn">Add to Favorites</button>
+    </div>
+    <div class="recipe-card" data-food="Turon">
+      <div class="recipe-card-img-wrap">
+        <img src="https://themayakitchen.com/wp-content/uploads/2019/10/TURON.jpg" alt="Turon">
+        <button class="heart-btn" title="Add to Favorites"><span class="material-icons">favorite_border</span></button>
+        <button class="share-btn" title="Share"><span class="material-icons">share</span></button>
+      </div>
+      <div class="recipe-card-title">Turon</div>
+      <button class="add-fav-btn">Add to Favorites</button>
+    </div>
+    <div class="recipe-card" data-food="Pochero">
+      <div class="recipe-card-img-wrap">
+        <img src="https://kapampanganku.com/v3/wp-content/uploads/2021/02/pochero.png" alt="Pochero">
+        <button class="heart-btn" title="Add to Favorites"><span class="material-icons">favorite_border</span></button>
+        <button class="share-btn" title="Share"><span class="material-icons">share</span></button>
+      </div>
+      <div class="recipe-card-title">Pochero</div>
+      <button class="add-fav-btn">Add to Favorites</button>
+    </div>
+    <div class="recipe-card" data-food="Ensaymada">
+      <div class="recipe-card-img-wrap">
+        <img src="https://flouredframe.com/wp-content/uploads/2020/10/vegan-ensaymada-ft-image-1200x1200-1.jpg" alt="Ensaymada">
+        <button class="heart-btn" title="Add to Favorites"><span class="material-icons">favorite_border</span></button>
+        <button class="share-btn" title="Share"><span class="material-icons">share</span></button>
+      </div>
+      <div class="recipe-card-title">Ensaymada</div>
+      <button class="add-fav-btn">Add to Favorites</button>
+    </div>
+    <div class="recipe-card" data-food="Cassava Cake">
+      <div class="recipe-card-img-wrap">
+        <img src="https://www.angsarap.net/wp-content/uploads/2012/01/cassava-cake-moms-version.jpg" alt="Cassava Cake">
+        <button class="heart-btn" title="Add to Favorites"><span class="material-icons">favorite_border</span></button>
+        <button class="share-btn" title="Share"><span class="material-icons">share</span></button>
+      </div>
+      <div class="recipe-card-title">Cassava Cake</div>
+      <button class="add-fav-btn">Add to Favorites</button>
+    </div>
   </div>
+</div>
 
+<style>
+.recipe-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 22px;
+  margin-top: 1.5rem;
+}
+.recipe-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem 0.8rem 1.2rem 0.8rem;
+  background: #fff;
+  border: 1.5px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(46,125,50,0.07);
+}
+.recipe-card-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 130px;
+  margin-bottom: 0.7rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.recipe-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  transition: filter 0.3s;
+}
+.recipe-card-title {
+  font-size: 1.13rem;
+  font-weight: 600;
+  color: #2e7d32;
+  margin: 0.5rem 0 0.2rem 0;
+  letter-spacing: 0.5px;
+}
+.recipe-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 6px 18px rgba(46,125,50,0.13);
+  border-color: #2e7d32;
+}
+.heart-btn, .share-btn {
+  position: absolute;
+  top: 8px;
+  background: rgba(255,255,255,0.85);
+  border: none;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.18s;
+  z-index: 2;
+  font-size: 1.3rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.heart-btn { left: 8px; color: #d84315; }
+.share-btn { right: 8px; color: #2e7d32; }
+.heart-btn span, .share-btn span {
+  font-size: 1.5rem;
+  pointer-events: none;
+  transition: color 0.2s;
+}
+.heart-btn.active span {
+  color: #d84315;
+  /* Fill the heart only, not the background */
+  text-shadow:
+    0 0 0 #d84315,
+    0 0 0 #d84315;
+}
+.heart-btn:hover {
+  background: #ffeaea;
+}
+.share-btn:hover {
+  background: #e8f5e9;
+}
+.add-fav-btn {
+  margin-top: 0.5rem;
+  background: #fffbe7;
+  color: #d84315;
+  border: 1px solid #d84315;
+  border-radius: 999px;
+  padding: 0.3rem 1.1rem;
+  font-size: 0.98rem;
+  font-family: 'Kanit', Arial, sans-serif;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+.add-fav-btn.favorited {
+  background: #d84315;
+  color: #fff;
+  border-color: #d84315;
+}
+</style>
+
+<script>
+// Heart react and Add to Favorites are now independent
+document.querySelectorAll('.heart-btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    btn.classList.toggle('active');
+    if (btn.classList.contains('active')) {
+      btn.querySelector('span').textContent = 'favorite';
+    } else {
+      btn.querySelector('span').textContent = 'favorite_border';
+    }
+  });
+});
+document.querySelectorAll('.add-fav-btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    btn.classList.toggle('favorited');
+    if (btn.classList.contains('favorited')) {
+      btn.textContent = 'Favorited';
+    } else {
+      btn.textContent = 'Add to Favorites';
+    }
+  });
+});
+document.querySelectorAll('.share-btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    const card = btn.closest('.recipe-card');
+    const foodName = card.getAttribute('data-food');
+    const shareText = `Check out this Filipino recipe: ${foodName}!`;
+    if (navigator.share) {
+      navigator.share({
+        title: foodName,
+        text: shareText,
+        url: window.location.href
+      });
+    } else {
+      // fallback: copy to clipboard
+      navigator.clipboard.writeText(`${shareText} ${window.location.href}`);
+      btn.title = "Link copied!";
+      setTimeout(() => { btn.title = "Share"; }, 1200);
+    }
+  });
+});
+
+// Clicking a recipe card switches to the recipe tab and shows the step-by-step process
+document.querySelectorAll('.recipe-card').forEach(card => {
+  card.addEventListener('click', function(e) {
+    // Prevent click if heart/share/add-fav was clicked
+    if (
+      e.target.classList.contains('heart-btn') ||
+      e.target.classList.contains('share-btn') ||
+      e.target.classList.contains('add-fav-btn') ||
+      e.target.closest('.heart-btn') ||
+      e.target.closest('.share-btn') ||
+      e.target.closest('.add-fav-btn')
+    ) return;
+
+    // Get the food name from data-food
+    const foodName = card.getAttribute('data-food');
+    // Generate a tab id for the recipe (e.g. tab-recipe-lechon-kawali)
+    const tabId = 'tab-recipe-' + foodName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const recipeTab = document.getElementById(tabId);
+
+    // Switch to the recipe tab for this food if it exists
+    if (recipeTab) {
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      document.querySelectorAll('.tab-content-custom').forEach(tab => tab.classList.remove('active'));
+      recipeTab.classList.add('active');
+      recipeTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
   <style>
     .tab-content-custom { display: none; margin-top: 2rem; }
     .tab-content-custom.active { display: block; }
@@ -476,7 +941,7 @@
     });
 
     // Food data for search
-    const foodDataCustom = [
+    const foodDataCustom1 = [
       {
         name: "Lechon",
         recipeTab: "Lechon",
@@ -505,13 +970,13 @@
     ];
 
     // Dropdown search logic
-    const searchInput = document.getElementById('food-search-input-custom');
-    const dropdown = document.getElementById('food-search-dropdown');
+    const searchInputDropdown = document.getElementById('food-search-input-custom');
+    const dropdown1 = document.getElementById('food-search-dropdown');
 
-    searchInput.addEventListener('input', function() {
+    searchInputDropdown.addEventListener('input', function() {
       const query = this.value.trim().toLowerCase();
       if (!query) {
-        dropdown.style.display = 'none';
+        dropdownMain.style.display = 'none';
         dropdown.innerHTML = '';
         return;
       }
@@ -534,26 +999,29 @@
 
       // Add event listeners for new dropdown links
       dropdown.querySelectorAll('.view-recipe-link').forEach(link => {
-        link.onclick = function(e) {
-          e.preventDefault();
-          // Switch to Recipes tab and scroll to the recipe
-          document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-          document.querySelectorAll('.tab-content-custom').forEach(tab => tab.classList.remove('active'));
-          document.querySelector('.nav-link[data-tab="tab-recipes-custom"]').classList.add('active');
-          document.getElementById('tab-recipes-custom').classList.add('active');
-          // Scroll to the recipe inside the recipes tab
-          const recipeName = this.getAttribute('data-recipe');
-          const recipeList = document.querySelectorAll('#tab-recipes-custom li');
-          recipeList.forEach(li => {
-            if (li.textContent.trim().toLowerCase().startsWith(recipeName.toLowerCase())) {
-              li.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              li.style.background = '#f1f8f5';
-              setTimeout(() => { li.style.background = ''; }, 1200);
-            }
-          });
-          dropdown.style.display = 'none';
-        };
-      });
+  link.onclick = function(e) {
+    e.preventDefault();
+    // Switch to the Recipes tab and show the specific recipe
+    const recipeName = this.getAttribute('data-recipe');
+    if (!recipeName) {
+      console.error('Error: data-recipe attribute is missing or null.');
+      return;
+    }
+    const tabId = 'tab-recipe-' + recipeName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const recipeTab = document.getElementById(tabId);
+
+    // Activate the Recipes nav and tab
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    document.querySelectorAll('.tab-content-custom').forEach(tab => tab.classList.remove('active'));
+    const recipesNav = document.querySelector('.nav-link[data-tab="tab-recipes-custom"]');
+    if (recipesNav) recipesNav.classList.add('active');
+    if (recipeTab) {
+      recipeTab.classList.add('active');
+      recipeTab.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    dropdown.style.display = 'none';
+  };
+});
 
       dropdown.querySelectorAll('.find-nearby-link').forEach(link => {
         link.onclick = function(e) {
@@ -574,14 +1042,1255 @@
 
     // Hide dropdown when clicking outside
     document.addEventListener('click', function(e) {
-      if (!searchInput.contains(e.target) && !dropdown.contains(e.target)) {
+      if (!searchInputDropdown.contains(e.target) && !dropdown.contains(e.target)) {
         dropdown.style.display = 'none';
       }
     });
 
     // Optional: Hide dropdown on blur
-    searchInput.addEventListener('blur', function() {
+    searchInputDropdown.addEventListener('blur', function() {
       setTimeout(() => { dropdown.style.display = 'none'; }, 200);
     });
   </script>
 </main>
+
+<style>
+#food-search-dropdown,
+#food-search-dropdown div,
+#food-search-dropdown a {
+  font-family: 'Kanit', 'Kind Sans', Arial, sans-serif !important;
+}
+</style>
+<!-- Add this to your <head> section if not already present -->
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<style>
+body, html, .site-footer, .tab-content-custom, .nav-link, .food-title, .food-desc, .home-hero-title, .home-hero-subtitle, .food-photo, .food-hover, .food-collage, .tab-custom, .site-footer a, .site-footer span, .food-photo img, .food-photo:hover img, .food-photo .food-hover, .food-photo .food-title, .food-photo .food-desc, .food-photo:hover .food-title, .food-photo:hover .food-desc {
+  font-family: 'Kanit', 'Kind Sans', Arial, sans-serif !important;
+}
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 40px;
+  height: 40px;
+}
+.search-icon {
+  transition: color 0.18s;
+  z-index: 4;
+  cursor: pointer;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem !important;
+  color: #2e7d32;
+  pointer-events: auto;
+}
+.search-container:hover .search-icon {
+}
+.search-input-hide {
+  width: 40px;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  transition:
+    width 0.22s cubic-bezier(.77,0,.18,1),
+    opacity 0.18s cubic-bezier(.77,0,.18,1),
+    border-radius 0.22s cubic-bezier(.77,0,.18,1),
+    padding 0.13s cubic-bezier(.77,0,.18,1);
+  font-family: 'Kanit', 'Kind Sans', Arial, sans-serif;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 38px;
+  z-index: 3;
+  background: #fffbe7;
+  outline: none;
+  pointer-events: none;
+}
+.search-input-show {
+  width: 180px;
+  opacity: 1;
+  padding: 0.4rem 2.0rem 0.4rem 1.2rem; /* More space on the right, less on the left */
+  border: 2px solid #2e7d32;
+  border-radius: 999px;
+  background: #fffbe7;
+  color: #2e7d32;
+  font-size: 1rem;
+  font-family: 'Kanit', 'Kind Sans', Arial, sans-serif;
+  box-shadow: 0 2px 8px rgba(46,125,50,0.08);
+  outline: none;
+  pointer-events: auto;
+  transition:
+    width 0.22s cubic-bezier(.77,0,.18,1),
+    opacity 0.18s cubic-bezier(.77,0,.18,1),
+    border-radius 0.22s cubic-bezier(.77,0,.18,1),
+    padding 0.13s cubic-bezier(.77,0,.18,1);
+  text-align: left;
+}
+
+.search-input-show::placeholder {
+  text-align: left;
+  direction: ltr;
+  padding-left: 0; /* Remove extra space */
+}
+.search-input-hide::placeholder {
+  opacity: 0;
+  transition: opacity 0.01s linear;
+}
+</style>
+
+<script>
+  const searchContainerMain = document.querySelector('.search-container');
+  const searchInputHeader = document.getElementById('food-search-input-custom');
+  
+  const dropdown = document.getElementById('food-search-dropdown');
+  let searchLocked = false;
+
+  // Show input on hover or when icon is clicked
+  function showSearch() {
+    searchInputHeader.classList.remove('search-input-hide');
+    searchInputHeader.classList.add('search-input-show');
+    searchInputHeader.focus();
+    searchLocked = true;
+  }
+
+  searchContainerMain.addEventListener('mouseenter', () => {
+    if (!searchLocked) showSearch();
+  });
+
+  searchIcon.addEventListener('mousedown', (e) => {
+    // Prevent blur event from firing before focus
+    e.preventDefault();
+    showSearch();
+  });
+
+  searchInput.addEventListener('focus', () => {
+    searchLocked = true;
+  });
+
+  searchContainerMain.addEventListener('mouseleave', () => {
+    if (!searchInput.value && !searchLocked && document.activeElement !== searchInput) {
+      searchInput.classList.remove('search-input-show');
+      searchInput.classList.add('search-input-hide');
+    }
+  });
+
+  searchInput.addEventListener('blur', () => {
+    setTimeout(() => {
+      if (!searchInput.value && !searchContainerMain.matches(':hover')) {
+        searchInput.classList.remove('search-input-show');
+        searchInput.classList.add('search-input-hide');
+        searchLocked = false;
+      }
+    }, 150);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!searchContainerMain.contains(e.target) && document.activeElement !== searchInput) {
+      searchLocked = false;
+      if (!searchInput.value) {
+        searchInput.classList.remove('search-input-show');
+        searchInput.classList.add('search-input-hide');
+      }
+    }
+  });
+</script>
+
+<style>
+/* Add pan transition for tab content */
+.tab-content-custom {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.4s cubic-bezier(.77,0,.18,1), transform 0.4s cubic-bezier(.77,0,.18,1);
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background: transparent;
+  z-index: 0;
+}
+.tab-content-custom.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
+}
+.tab-content-wrapper {
+  position: relative;
+  min-height: 0; /* Remove forced min-height */
+  padding-bottom: 0; /* Remove extra padding */
+}
+.tab-content-custom {
+  margin-bottom: 0 !important; /* Remove any bottom margin */
+  padding-bottom: 0 !important;
+}
+.site-footer {
+  margin-top: 2rem; /* Reduce footer margin if needed */
+}
+</style>
+
+<!-- Wrap your tab content sections with this wrapper -->
+<div class="tab-content-wrapper">
+  <div id="tab-home-custom" class="tab-content-custom active">
+    <!-- ...Home content... -->
+  </div>
+  <div id="tab-restaurants-custom" class="tab-content-custom">
+    <!-- ...Restaurants content... -->
+  </div>
+  <div id="tab-recipes-custom" class="tab-content-custom">
+    <!-- ...Recipes content... -->
+  </div>
+</div>
+
+<script>
+  // Navigation tab logic with pan transition
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      // Remove active from all nav links
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      // Hide all tab contents
+      document.querySelectorAll('.tab-content-custom').forEach(tab => tab.classList.remove('active'));
+      // Activate clicked nav and corresponding tab
+      this.classList.add('active');
+      const tabId = this.getAttribute('data-tab');
+      const tab = document.getElementById(tabId);
+      if (tab) {
+        // Force reflow for transition
+        void tab.offsetWidth;
+        tab.classList.add('active');
+      }
+    });
+  });
+</script>
+
+<style>
+/* Simple underline hover effect for navigation */
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 0.4rem 1.1rem;
+  border-radius: 0;
+  transition: color 0.18s, border-bottom 0.18s;
+  font-family: 'Kanit', 'Kind Sans', Arial, sans-serif;
+  border-bottom: 2px solid transparent;
+}
+.nav-link:hover, .nav-link.active {
+  border-bottom: 2px solid #d84315;
+  color: #d84315 !important;
+  background: none;
+}
+</style>
+
+<script>
+/* Duplicate declaration removed: foodDataCustom is already declared earlier in the file */
+
+/* const searchInputMain = document.getElementById('food-search-input-custom'); */ // Removed duplicate declaration
+const dropdownMain = document.getElementById('food-search-dropdown');
+
+// Show dropdown results as user types
+searchInputMain.addEventListener('input', function() {
+  const query = this.value.trim().toLowerCase();
+  if (!query) {
+    dropdown1.style.display = 'none';
+    dropdown1.innerHTML = '';
+    return;
+  }
+  const results = foodDataCustom.filter(item =>
+    item.name.toLowerCase().includes(query)
+  );
+  if (results.length === 0) {
+    dropdown1.innerHTML = '<div style="color:#888;">No results found.</div>';
+    dropdown1.style.display = 'block';
+    return;
+  }
+  dropdown1.innerHTML = results.map(item =>
+    `<div>
+      <b>${item.name}</b><br>
+      <a href="#" class="view-recipe-link" data-recipe="${item.recipeTab}" style="color:#2e7d32;">View Recipe</a> |
+      <a href="#" class="find-nearby-link" data-map="${encodeURIComponent(item.mapQuery)}" style="color:#d84315;">Find Nearby</a>
+    </div>`
+  ).join('');
+  dropdownMain.style.display = 'block';
+
+  // Add event listeners for new dropdown links
+  dropdown1.querySelectorAll('.view-recipe-link').forEach(link => {
+    link.onclick = function(e) {
+      e.preventDefault();
+      // Switch to Recipes tab and scroll to the recipe
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      document.querySelectorAll('.tab-content-custom').forEach(tab => tab.classList.remove('active'));
+      document.querySelector('.nav-link[data-tab="tab-recipes-custom"]').classList.add('active');
+      document.getElementById('tab-recipes-custom').classList.add('active');
+      // Scroll to the recipe inside the recipes tab
+      const recipeName = this.getAttribute('data-recipe');
+      const recipeList = document.querySelectorAll('#tab-recipes-custom li');
+      let recipeFound = false;
+      recipeList.forEach(li => {
+        if (li.textContent.trim().toLowerCase().startsWith(recipeName.toLowerCase())) {
+          li.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          li.style.background = '#f1f8f5';
+          setTimeout(() => { li.style.background = ''; }, 1200);
+          recipeFound = true;
+        }
+      });
+      if (!recipeFound) {
+        alert(`Recipe tab for "${recipeName}" not found.`);
+      }
+      dropdownMain.style.display = 'none';
+    };
+      });
+
+      dropdown.querySelectorAll('.find-nearby-link').forEach(link => {
+        link.onclick = function(e) {
+          e.preventDefault();
+          // Switch to Restaurants tab and update the map src
+          document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+          document.querySelectorAll('.tab-content-custom').forEach(tab => tab.classList.remove('active'));
+          document.querySelector('.nav-link[data-tab="tab-restaurants-custom"]').classList.add('active');
+          document.getElementById('tab-restaurants-custom').classList.add('active');
+          // Update the map iframe src
+          const mapQuery = this.getAttribute('data-map');
+          const mapIframe = document.querySelector('#tab-restaurants-custom iframe');
+          mapIframe.src = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
+          dropdownMain.style.display = 'none';
+        };
+      });
+    });
+
+    // Hide dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!searchInputMain.contains(e.target) && !dropdownMain.contains(e.target)) {
+        dropdownMain.style.display = 'none';
+      }
+    });
+
+    // Optional: Hide dropdown on blur
+    searchInputMain.addEventListener('blur', function() {
+      setTimeout(() => { dropdownMain.style.display = 'none'; }, 200);
+    });
+  </script>
+</main>
+
+
+
+<!-- Add this to your <head> section if not already present -->
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<style>
+body, html, .site-footer, .tab-content-custom, .nav-link, .food-title, .food-desc, .home-hero-title, .home-hero-subtitle, .food-photo, .food-hover, .food-collage, .tab-custom, .site-footer a, .site-footer span, .food-photo img, .food-photo:hover img, .food-photo .food-hover, .food-photo .food-title, .food-photo .food-desc, .food-photo:hover .food-title, .food-photo:hover .food-desc {
+  font-family: 'Kanit', 'Kind Sans', Arial, sans-serif !important;
+}
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 40px;
+  height: 40px;
+}
+.search-icon {
+  transition: color 0.18s;
+  z-index: 4;
+  cursor: pointer;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem !important;
+  color: #2e7d32;
+  pointer-events: auto;
+}
+.search-container:hover .search-icon {
+}
+.search-input-hide {
+  width: 40px;
+  opacity: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  transition:
+    width 0.22s cubic-bezier(.77,0,.18,1),
+    opacity 0.18s cubic-bezier(.77,0,.18,1),
+    border-radius 0.22s cubic-bezier(.77,0,.18,1),
+    padding 0.13s cubic-bezier(.77,0,.18,1);
+  font-family: 'Kanit', 'Kind Sans', Arial, sans-serif;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 38px;
+  z-index: 3;
+  background: #fffbe7;
+  outline: none;
+  pointer-events: none;
+}
+.search-input-show {
+  width: 180px;
+  opacity: 1;
+  padding: 0.4rem 2.0rem 0.4rem 1.2rem; /* More space on the right, less on the left */
+  border: 2px solid #2e7d32;
+  border-radius: 999px;
+  background: #fffbe7;
+  color: #2e7d32;
+  font-size: 1rem;
+  font-family: 'Kanit', 'Kind Sans', Arial, sans-serif;
+  box-shadow: 0 2px 8px rgba(46,125,50,0.08);
+  outline: none;
+  pointer-events: auto;
+  transition:
+    width 0.22s cubic-bezier(.77,0,.18,1),
+    opacity 0.18s cubic-bezier(.77,0,.18,1),
+    border-radius 0.22s cubic-bezier(.77,0,.18,1),
+    padding 0.13s cubic-bezier(.77,0,.18,1);
+  text-align: left;
+}
+
+.search-input-show::placeholder {
+  text-align: left;
+  direction: ltr;
+  padding-left: 0; /* Remove extra space */
+}
+.search-input-hide::placeholder {
+  opacity: 0;
+  transition: opacity 0.01s linear;
+}
+</style>
+
+<script>
+  const searchContainer = document.querySelector('.search-container');
+  const searchInput = document.getElementById('food-search-input-custom');
+  
+  const dropdownHeader = document.getElementById('food-search-dropdown');
+  // let searchLocked = false; // Removed duplicate declaration
+
+  // Show input on hover or when icon is clicked
+  function showSearch() {
+    searchInputHeader.classList.remove('search-input-hide');
+    searchInputHeader.classList.add('search-input-show');
+    searchInputHeader.focus();
+    searchLocked = true;
+  }
+
+  searchContainer.addEventListener('mouseenter', () => {
+    if (!searchLocked) showSearch();
+  });
+
+  searchIcon.addEventListener('mousedown', (e) => {
+    // Prevent blur event from firing before focus
+    e.preventDefault();
+    showSearch();
+  });
+
+  searchInputHeader.addEventListener('focus', () => {
+    searchLocked = true;
+  });
+
+  searchContainer.addEventListener('mouseleave', () => {
+    if (!searchInputHeader.value && !searchLocked && document.activeElement !== searchInputHeader) {
+      searchInputHeader.classList.remove('search-input-show');
+      searchInputHeader.classList.add('search-input-hide');
+    }
+  });
+
+  searchInputHeader.addEventListener('blur', () => {
+    setTimeout(() => {
+      if (!searchInputHeader.value && !searchContainer.matches(':hover')) {
+        searchInputHeader.classList.remove('search-input-show');
+        searchInputHeader.classList.add('search-input-hide');
+        searchLocked = false;
+      }
+    }, 150);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!searchContainer.contains(e.target) && document.activeElement !== searchInputHeader) {
+      searchLocked = false;
+      if (!searchInputHeader.value) {
+        searchInputHeader.classList.remove('search-input-show');
+        searchInputHeader.classList.add('search-input-hide');
+      }
+    }
+  });
+</script>
+
+<style>
+/* Add pan transition for tab content */
+.tab-content-custom {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.4s cubic-bezier(.77,0,.18,1), transform 0.4s cubic-bezier(.77,0,.18,1);
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background: transparent;
+  z-index: 0;
+}
+.tab-content-custom.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
+}
+.tab-content-wrapper {
+  position: relative;
+  min-height: 0; /* Remove forced min-height */
+  padding-bottom: 0; /* Remove extra padding */
+}
+.tab-content-custom {
+  margin-bottom: 0 !important; /* Remove any bottom margin */
+  padding-bottom: 0 !important;
+}
+.site-footer {
+  margin-top: 2rem; /* Reduce footer margin if needed */
+}
+</style>
+
+<!-- Wrap your tab content sections with this wrapper -->
+<div class="tab-content-wrapper">
+  <div id="tab-home-custom" class="tab-content-custom active">
+    <!-- ...Home content... -->
+  </div>
+  <div id="tab-restaurants-custom" class="tab-content-custom">
+    <!-- ...Restaurants content... -->
+  </div>
+  <div id="tab-recipes-custom" class="tab-content-custom">
+    <!-- ...Recipes content... -->
+  </div>
+</div>
+
+<script>
+  // Navigation tab logic with pan transition
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      // Remove active from all nav links
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      // Hide all tab contents
+      document.querySelectorAll('.tab-content-custom').forEach(tab => tab.classList.remove('active'));
+      // Activate clicked nav and corresponding tab
+      this.classList.add('active');
+      const tabId = this.getAttribute('data-tab');
+      const tab = document.getElementById(tabId);
+      if (tab) {
+        // Force reflow for transition
+        void tab.offsetWidth;
+        tab.classList.add('active');
+      }
+    });
+  });
+</script>
+
+<style>
+/* Simple underline hover effect for navigation */
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 0.4rem 1.1rem;
+  border-radius: 0;
+  transition: color 0.18s, border-bottom 0.18s;
+  font-family: 'Kanit', 'Kind Sans', Arial, sans-serif;
+  border-bottom: 2px solid transparent;
+}
+.nav-link:hover, .nav-link.active {
+  border-bottom: 2px solid #d84315;
+  color: #d84315 !important;
+  background: none;
+}
+</style>
+
+<script>
+const foodDataCustom = [
+  { name: "Lechon", recipeTab: "Lechon", mapQuery: "lechon restaurant near me" },
+  { name: "Halo-Halo", recipeTab: "Halo-Halo", mapQuery: "halo-halo near me" },
+  { name: "Kare-Kare", recipeTab: "Kare-Kare", mapQuery: "kare-kare restaurant near me" },
+  { name: "Puto Bumbong", recipeTab: "Puto Bumbong", mapQuery: "puto bumbong near me" },
+  { name: "Bicol Express", recipeTab: "Bicol Express", mapQuery: "bicol express restaurant near me" },
+  { name: "Sinigang na Baboy", recipeTab: "Sinigang na Baboy", mapQuery: "sinigang restaurant near me" },
+  { name: "Chicken Adobo", recipeTab: "Chicken Adobo", mapQuery: "adobo restaurant near me" },
+  { name: "Pancit Canton", recipeTab: "Pancit Canton", mapQuery: "pancit canton restaurant near me" },
+  { name: "Bibingka", recipeTab: "Bibingka", mapQuery: "bibingka near me" },
+  { name: "Lumpiang Shanghai", recipeTab: "Lumpiang Shanghai", mapQuery: "lumpiang shanghai restaurant near me" },
+  { name: "Filipino Spaghetti", recipeTab: "Filipino Spaghetti", mapQuery: "filipino spaghetti restaurant near me" },
+  { name: "Menudo", recipeTab: "Menudo", mapQuery: "menudo restaurant near me" },
+  { name: "Turon", recipeTab: "Turon", mapQuery: "turon near me" },
+  { name: "Pochero", recipeTab: "Pochero", mapQuery: "pochero restaurant near me" },
+  { name: "Ensaymada", recipeTab: "Ensaymada", mapQuery: "ensaymada near me" },
+  { name: "Cassava Cake", recipeTab: "Cassava Cake", mapQuery: "cassava cake near me" }
+];
+
+const searchInputMain = document.getElementById('food-search-input-custom');
+// const dropdownMain = document.getElementById('food-search-dropdown'); // Removed duplicate declaration
+
+// Show dropdown results as user types
+searchInputMain.addEventListener('input', function() {
+  const query = this.value.trim().toLowerCase();
+  if (!query) {
+    dropdownMain.style.display = 'none';
+    dropdownMain.innerHTML = '';
+    return;
+  }
+  const results = foodDataCustom.filter(item =>
+    item.name.toLowerCase().includes(query)
+  );
+  if (results.length === 0) {
+    dropdownMain.innerHTML = '<div style="color:#888;">No results found.</div>';
+    dropdownMain.style.display = 'block';
+    return;
+  }
+  dropdownMain.innerHTML = results.map(item =>
+    `<div>
+      <b>${item.name}</b><br>
+      <a href="#" class="view-recipe-link" data-recipe="${item.recipeTab}" style="color:#2e7d32;">View Recipe</a> |
+      <a href="#" class="find-nearby-link" data-map="${encodeURIComponent(item.mapQuery)}" style="color:#d84315;">Find Nearby</a>
+    </div>`
+  ).join('');
+  dropdownMain.style.display = 'block';
+
+  // Add event listeners for new dropdown links
+  dropdownMain.querySelectorAll('.view-recipe-link').forEach(link => {
+    link.onclick = function(e) {
+      e.preventDefault();
+      // Switch to Recipes tab and scroll to the recipe
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      document.querySelectorAll('.tab-content-custom').forEach(tab => tab.classList.remove('active'));
+      document.querySelector('.nav-link[data-tab="tab-recipes-custom"]').classList.add('active');
+      document.getElementById('tab-recipes-custom').classList.add('active');
+      // Scroll to the recipe inside the recipes tab
+      const recipeName = this.getAttribute('data-recipe');
+      const recipeList = document.querySelectorAll('#tab-recipes-custom li');
+      recipeList.forEach(li => {
+        if (li.textContent.trim().toLowerCase().startsWith(recipeName.toLowerCase())) {
+          li.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          li.style.background = '#f1f8f5';
+          setTimeout(() => { li.style.background = ''; }, 1200);
+        }
+      });
+      dropdownMain.style.display = 'none';
+    };
+  });
+
+  dropdown1.querySelectorAll('.find-nearby-link').forEach(link => {
+    link.onclick = function(e) {
+      e.preventDefault();
+      // Switch to Restaurants tab and update the map src
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      document.querySelectorAll('.tab-content-custom').forEach(tab => tab.classList.remove('active'));
+      document.querySelector('.nav-link[data-tab="tab-restaurants-custom"]').classList.add('active');
+      document.getElementById('tab-restaurants-custom').classList.add('active');
+      // Update the map iframe src
+      const mapQuery = this.getAttribute('data-map');
+      const mapIframe = document.querySelector('#tab-restaurants-custom iframe');
+      mapIframe.src = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
+      dropdownMain.style.display = 'none';
+    };
+  });
+});
+
+// Hide dropdown when clicking outside
+document.addEventListener('click', function(e) {
+  if (!searchInputMain.contains(e.target) && !dropdownMain.contains(e.target)) {
+    dropdownMain.style.display = 'none';
+  }
+});
+
+// Optional: Hide dropdown on blur
+searchInputMain.addEventListener('blur', function() {
+  setTimeout(() => { dropdownMain.style.display = 'none'; }, 200);
+});
+</script>
+
+<!-- Tab Content: Lechon Kawali Recipe -->
+<div class="tab-content-custom" id="tab-recipe-lechon-kawali">
+  <h2 style="font-size:3rem; color:#d84315;"> <button onclick="document.querySelector('.nav-link[data-tab=\'tab-recipes-custom\']').click();" class="back-arrow-btn" title="Back to Recipes">
+    <span class="material-icons">arrow_back</span>
+    </button> Lechon Kawali Recipe
+    <div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+      <img 
+        src="https://static01.nyt.com/images/2023/11/28/multimedia/ND-Lechon-Kawali-bflv/ND-Lechon-Kawali-bflv-superJumbo.jpg" 
+        style="margin: 2rem auto 0 auto; display: block; width: 100%; max-width: calc(100vw - 10vw); height: 420px; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+        alt="Crispy golden-brown pieces of Lechon Kawali arranged on a light plate beside a small bowl of dipping sauce with sliced red chilies. The food is presented on a marble surface, creating a clean and inviting atmosphere. The scene conveys a sense of celebration and enjoyment."
+        style="max-width: 420px; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+      >
+    </div>
+    </h2>
+    
+    
+  <ol style="font-size:1.1rem; color:#000000;">
+    <b style="color:#2e7d32; font-size:1.5rem;">Step-by-Step Process:</b>
+    <li>Boil pork belly with salt, pepper, garlic, and bay leaves until tender.</li>
+    <li>Drain and let it dry completely.</li>
+    <li>Deep fry until golden and crispy.</li>
+    <li>Slice and serve with liver sauce.</li>
+  </ol>
+</div>
+
+<div class="tab-content-custom" id="tab-recipe-halo-halo">
+  <h2 style="font-size:3rem; color:#d84315;"><button onclick="document.querySelector('.nav-link[data-tab=\'tab-recipes-custom\']').click();" class="back-arrow-btn" title="Back to Recipes">
+    <span class="material-icons">arrow_back</span>
+    </button> Halo-Halo Recipe<div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+      <img 
+        src="https://graceland.ph/wp-content/uploads/2023/05/HALO-HALO-SPECIAL.jpg" 
+        style="margin: 2rem auto 0 auto; display: block; width: 100%; max-width: calc(100vw - 10vw); height: 420px; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+        alt="Crispy golden-brown pieces of Lechon Kawali arranged on a light plate beside a small bowl of dipping sauce with sliced red chilies. The food is presented on a marble surface, creating a clean and inviting atmosphere. The scene conveys a sense of celebration and enjoyment."
+        style="max-width: 420px; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+      >
+    </div></h2>
+  <ol style="font-size:1.1rem; color:#000000;">
+    <b style="color:#2e7d32; font-size:1.5rem;">Step-by-Step Process:</b>
+    <li>Layer sweetened fruits, beans, and jellies at the bottom of a tall glass.</li>
+    <li>Add a generous amount of shaved ice on top.</li>
+    <li>Pour evaporated milk over the ice.</li>
+    <li>Add leche flan, ube halaya, and ice cream.</li>
+    <li>Top with pinipig or crispies if desired. Mix before eating.</li>
+  </ol>
+  
+</div>
+
+<div class="tab-content-custom" id="tab-recipe-kare-kare">
+  <h2 style="font-size:3rem; color:#d84315;"> <button onclick="document.querySelector('.nav-link[data-tab=\'tab-recipes-custom\']').click();" class="back-arrow-btn" title="Back to Recipes">
+    <span class="material-icons">arrow_back</span>
+    </button> Kare-Kare Recipe<div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+      <img 
+        src="https://www.maggi.ph/sites/default/files/styles/home_stage_1500_700/public/srh_recipes/3eb553f39b3c0d978fbb90169fb3d6a5.jpg?h=78aab1d8&itok=QYxT7Gkf" 
+        style="margin: 2rem auto 0 auto; display: block; width: 100%; max-width: calc(100vw - 10vw); height: 420px; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+        alt="Crispy golden-brown pieces of Lechon Kawali arranged on a light plate beside a small bowl of dipping sauce with sliced red chilies. The food is presented on a marble surface, creating a clean and inviting atmosphere. The scene conveys a sense of celebration and enjoyment."
+        style="max-width: 420px; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+      >
+    </div></h2>
+  <ol style="font-size:1.1rem; color:#000000;">
+    <b style="color:#2e7d32; font-size:1.5rem;">Step-by-Step Process:</b>
+    <li>Boil oxtail or beef until tender. Set aside broth.</li>
+    <li>In a pan, sauté garlic and onion. Add annatto for color.</li>
+    <li>Pour in the broth and peanut butter. Stir until smooth.</li>
+    <li>Add the boiled meat and simmer until sauce thickens.</li>
+    <li>Blanch vegetables separately and arrange on top before serving.</li>
+    <li>Serve hot with bagoong on the side.</li>
+  </ol>
+</div>
+
+<div class="tab-content-custom" id="tab-recipe-puto-bumbong">
+  <h2 style="font-size:3rem; color:#d84315;"> <button onclick="document.querySelector('.nav-link[data-tab=\'tab-recipes-custom\']').click();" class="back-arrow-btn" title="Back to Recipes">
+    <span class="material-icons">arrow_back</span>
+    </button> Puto Bumbong Recipe<div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+      <img 
+        src="https://kusinasecrets.com/wp-content/uploads/2024/11/image-108.webp" 
+        style="margin: 2rem auto 0 auto; display: block; width: 100%; max-width: calc(100vw - 10vw); height: 420px; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+        alt="Crispy golden-brown pieces of Lechon Kawali arranged on a light plate beside a small bowl of dipping sauce with sliced red chilies. The food is presented on a marble surface, creating a clean and inviting atmosphere. The scene conveys a sense of celebration and enjoyment."
+        style="max-width: 420px; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+      >
+    </div></h2>
+  <ol style="font-size:1.1rem; color:#000000;">
+    <b style="color:#2e7d32; font-size:1.5rem;">Step-by-Step Process:</b>
+    <li>Soak glutinous rice overnight, grind, and let dry until slightly damp.</li>
+    <li>Pack the rice mixture into bamboo tubes (bumbong).</li>
+    <li>Steam using a special puto bumbong steamer for about 10 minutes.</li>
+    <li>Carefully remove and place on banana leaves.</li>
+    <li>Spread with butter and top with grated coconut and brown sugar.</li>
+    <li>Best served hot and fresh.</li>
+  </ol>
+</div>
+
+<div class="tab-content-custom" id="tab-recipe-bicol-express">
+  <h2 style="font-size:3rem; color:#d84315;"> <button onclick="document.querySelector('.nav-link[data-tab=\'tab-recipes-custom\']').click();" class="back-arrow-btn" title="Back to Recipes">
+    <span class="material-icons">arrow_back</span>
+    </button> Bicol Express Recipe<div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+      <img 
+        src="https://i.pinimg.com/736x/24/66/a7/2466a703a0eca0348cef957904e7a48c.jpg" 
+        style="margin: 2rem auto 0 auto; display: block; width: 100%; max-width: calc(100vw - 10vw); height: 420px; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+        alt="Crispy golden-brown pieces of Lechon Kawali arranged on a light plate beside a small bowl of dipping sauce with sliced red chilies. The food is presented on a marble surface, creating a clean and inviting atmosphere. The scene conveys a sense of celebration and enjoyment."
+        style="max-width: 420px; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+      >
+    </div></h2>
+  <ol style="font-size:1.1rem; color:#000000;">
+    <b style="color:#2e7d32; font-size:1.5rem;">Step-by-Step Process:</b>
+    <li>Sauté garlic, onion, and ginger in a pan.</li>
+    <li>Add pork and cook until lightly browned.</li>
+    <li>Pour in coconut milk and bring to a simmer.</li>
+    <li>Add shrimp paste and chili peppers. Stir well.</li>
+    <li>Simmer until pork is tender and sauce is slightly reduced.</li>
+    <li>Pour in coconut cream and cook for another 5–10 minutes.</li>
+    <li>Serve hot with rice.</li>
+  </ol>
+</div>
+
+<div class="tab-content-custom" id="tab-recipe-sinigang-na-baboy">
+  <h2 style="font-size:3rem; color:#d84315;"><button onclick="document.querySelector('.nav-link[data-tab=\'tab-recipes-custom\']').click();" class="back-arrow-btn" title="Back to Recipes">
+    <span class="material-icons">arrow_back</span>
+    </button> Sinigang na Baboy Recipe<div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+      <img 
+        src="https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/arufwdik/8e48f9d7-4ab7-4ad2-b6b6-8aee7b3cb08e.png" 
+        style="margin: 2rem auto 0 auto; display: block; width: 100%; max-width: calc(100vw - 10vw); height: 420px; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+        alt="Crispy golden-brown pieces of Lechon Kawali arranged on a light plate beside a small bowl of dipping sauce with sliced red chilies. The food is presented on a marble surface, creating a clean and inviting atmosphere. The scene conveys a sense of celebration and enjoyment."
+        style="max-width: 420px; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+      >
+    </div></h2>
+  <ol style="font-size:1.1rem; color:#000000;">
+    <b style="color:#2e7d32; font-size:1.5rem;">Step-by-Step Process:</b>
+    <li>Boil pork with tomatoes, onions, and tamarind until tender.</li>
+    <li>Add vegetables like radish, eggplant, and string beans.</li>
+    <li>Season with fish sauce and adjust sourness to taste.</li>
+    <li>Serve hot with rice.</li>
+  </ol>
+</div>
+
+<div class="tab-content-custom" id="tab-recipe-chicken-adobo">
+  <h2 style="font-size:3rem; color:#d84315;"><button onclick="document.querySelector('.nav-link[data-tab=\'tab-recipes-custom\']').click();" class="back-arrow-btn" title="Back to Recipes">
+    <span class="material-icons">arrow_back</span>
+    </button> Chicken Adobo Recipe<div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+      <img 
+        src="https://www.seriouseats.com/thmb/uc8nb040OwgXekR9obuhEqm8WoI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2019__10__20191023-chicken-adobo-vicky-wasik-19-12ce105a2e1a44dfb1e2673775118064.jpg" 
+        style="margin: 2rem auto 0 auto; display: block; width: 100%; max-width: calc(100vw - 10vw); height: 420px; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+        alt="Crispy golden-brown pieces of Lechon Kawali arranged on a light plate beside a small bowl of dipping sauce with sliced red chilies. The food is presented on a marble surface, creating a clean and inviting atmosphere. The scene conveys a sense of celebration and enjoyment."
+        style="max-width: 420px; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+      >
+    </div></h2>
+  <ol style="font-size:1.1rem; color:#000000;">
+    <b style="color:#2e7d32; font-size:1.5rem;">Step-by-Step Process:</b>
+    <li>Marinate chicken in vinegar, soy sauce, garlic, bay leaves, and peppercorns.</li>
+    <li>Sauté garlic, then add chicken and marinade.</li>
+    <li>Simmer until chicken is tender and sauce is reduced.</li>
+    <li>Serve with steamed rice.</li>
+  </ol>
+</div>
+
+<div class="tab-content-custom" id="tab-recipe-pancit-canton">
+  <h2 style=" font-size:3rem; color:#d84315;"> <button onclick="document.querySelector('.nav-link[data-tab=\'tab-recipes-custom\']').click();" class="back-arrow-btn" title="Back to Recipes">
+    <span class="material-icons">arrow_back</span>
+    </button> Pancit Canton Recipe<div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+      <img 
+        src="https://marleyspoon.com/media/recipes/107504/main_photos/large/taste_trip_chicken_pancit_canton-c919d9cf60a6c73372db22d2a91b3e2c.jpeg" 
+        style="margin: 2rem auto 0 auto; display: block; width: 100%; max-width: calc(100vw - 10vw); height: 420px; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+        alt="Crispy golden-brown pieces of Lechon Kawali arranged on a light plate beside a small bowl of dipping sauce with sliced red chilies. The food is presented on a marble surface, creating a clean and inviting atmosphere. The scene conveys a sense of celebration and enjoyment."
+        style="max-width: 420px; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+      >
+    </div></h2>
+  <ol style="font-size:1.1rem; color:#000000;">
+    <b style="color:#2e7d32; font-size:1.5rem;">Step-by-Step Process:</b>
+    <li>Sauté garlic and onion, add pork, chicken, and shrimp.</li>
+    <li>Add vegetables and stir-fry until crisp-tender.</li>
+    <li>Add soy sauce, oyster sauce, and broth.</li>
+    <li>Add canton noodles and cook until sauce is absorbed.</li>
+    <li>Serve hot with calamansi.</li>
+  </ol>
+  
+</div>
+
+<div class="tab-content-custom" id="tab-recipe-bibingka">
+  <h2 style="font-size:3rem; color:#d84315;"> <button onclick="document.querySelector('.nav-link[data-tab=\'tab-recipes-custom\']').click();" class="back-arrow-btn" title="Back to Recipes">
+    <span class="material-icons">arrow_back</span>
+    </button> Bibingka Recipe<div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+      <img 
+        src="https://static01.nyt.com/images/2016/11/11/dining/COOKING-BIBINGKA1/COOKING-FILIPINO1-superJumbo.jpg" 
+        style="margin: 2rem auto 0 auto; display: block; width: 100%; max-width: calc(100vw - 10vw); height: 420px; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+        alt="Crispy golden-brown pieces of Lechon Kawali arranged on a light plate beside a small bowl of dipping sauce with sliced red chilies. The food is presented on a marble surface, creating a clean and inviting atmosphere. The scene conveys a sense of celebration and enjoyment."
+        style="max-width: 420px; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+      >
+    </div></h2>
+  <ol style="font-size:1.1rem; color:#000000;">
+    <b style="color:#2e7d32; font-size:1.5rem;">Step-by-Step Process:</b>
+    <li>Mix rice flour, coconut milk, sugar, and eggs into a batter.</li>
+    <li>Pour into banana leaf-lined molds and bake until set.</li>
+    <li>Top with salted egg and cheese, then bake until golden.</li>
+    <li>Brush with butter and serve warm.</li>
+  </ol>
+  
+</div>
+
+<div class="tab-content-custom" id="tab-recipe-lumpiang-shanghai">
+  <h2 style="font-size:3rem; color:#d84315;"><button onclick="document.querySelector('.nav-link[data-tab=\'tab-recipes-custom\']').click();" class="back-arrow-btn" title="Back to Recipes">
+    <span class="material-icons">arrow_back</span>
+    </button> Lumpiang Shanghai Recipe<div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+      <img 
+        src="https://assets.unileversolutions.com/recipes-v2/166515.jpg" 
+        style="margin: 2rem auto 0 auto; display: block; width: 100%; max-width: calc(100vw - 10vw); height: 420px; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+        alt="Crispy golden-brown pieces of Lechon Kawali arranged on a light plate beside a small bowl of dipping sauce with sliced red chilies. The food is presented on a marble surface, creating a clean and inviting atmosphere. The scene conveys a sense of celebration and enjoyment."
+        style="max-width: 420px; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+      >
+    </div></h2>
+  <ol style="font-size:1.1rem; color:#000000;">
+    <b style="color:#2e7d32; font-size:1.5rem;">Step-by-Step Process:</b>
+    <li>Mix ground pork, carrots, onions, garlic, and seasonings.</li>
+    <li>Wrap mixture in lumpia wrappers and seal edges.</li>
+    <li>Deep fry until golden and crispy.</li>
+    <li>Serve with sweet chili sauce.</li>
+  </ol>
+  
+</div>
+
+<div class="tab-content-custom" id="tab-recipe-filipino-spaghetti">
+  <h2 style="font-size:3rem; color:#d84315;"> <button onclick="document.querySelector('.nav-link[data-tab=\'tab-recipes-custom\']').click();" class="back-arrow-btn" title="Back to Recipes">
+    <span class="material-icons">arrow_back</span>
+    </button> Filipino Spaghetti Recipe<div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+      <img 
+        src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2021/05/18/Jerome-Grant-Filipino-Spaghetti_s4x3.jpg.rend.hgtvcom.1280.1280.suffix/1621343901219.webp" 
+        style="margin: 2rem auto 0 auto; display: block; width: 100%; max-width: calc(100vw - 10vw); height: 420px; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+        alt="Crispy golden-brown pieces of Lechon Kawali arranged on a light plate beside a small bowl of dipping sauce with sliced red chilies. The food is presented on a marble surface, creating a clean and inviting atmosphere. The scene conveys a sense of celebration and enjoyment."
+        style="max-width: 420px; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+      >
+    </div></h2>
+  <ol style="font-size:1.1rem; color:#000000;">
+    <b style="color:#2e7d32; font-size:1.5rem;">Step-by-Step Process:</b>
+    <li>Sauté garlic and onion, add ground pork and cook until browned.</li>
+    <li>Add hotdogs, tomato sauce, banana ketchup, and sugar.</li>
+    <li>Simmer until sauce thickens.</li>
+    <li>Serve over spaghetti noodles with grated cheese.</li>
+  </ol>
+  
+</div>
+
+<div class="tab-content-custom" id="tab-recipe-menudo">
+  <h2 style="font-size:3rem; color:#d84315;"><button onclick="document.querySelector('.nav-link[data-tab=\'tab-recipes-custom\']').click();" class="back-arrow-btn" title="Back to Recipes">
+    <span class="material-icons">arrow_back</span>
+    </button> Menudo Recipe<div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+      <img 
+        src="https://kusinasecrets.com/wp-content/uploads/2024/11/u3317447599_httpss.mj_.runBpvmChIMZ78_top_down_view_of_Filipin_353efd2d-3aae-4a14-967f-28d3340067da_2.jpg" 
+        style="margin: 2rem auto 0 auto; display: block; width: 100%; max-width: calc(100vw - 10vw); height: 420px; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+        alt="Crispy golden-brown pieces of Lechon Kawali arranged on a light plate beside a small bowl of dipping sauce with sliced red chilies. The food is presented on a marble surface, creating a clean and inviting atmosphere. The scene conveys a sense of celebration and enjoyment."
+        style="max-width: 420px; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+      >
+    </div></h2>
+  <ol style="font-size:1.1rem; color:#000000;">
+    <b style="color:#2e7d32; font-size:1.5rem;">Step-by-Step Process:</b>
+    <li>Sauté garlic and onion, add pork and liver, cook until browned.</li>
+    <li>Add tomato sauce, potatoes, carrots, and bell peppers.</li>
+    <li>Simmer until vegetables are tender and sauce thickens.</li>
+    <li>Serve hot with rice.</li>
+  </ol>
+  
+</div>
+
+<div class="tab-content-custom" id="tab-recipe-turon">
+  <h2 style="font-size:3rem; color:#d84315;"><button onclick="document.querySelector('.nav-link[data-tab=\'tab-recipes-custom\']').click();" class="back-arrow-btn" title="Back to Recipes">
+    <span class="material-icons">arrow_back</span>
+    </button> Turon Recipe<div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+      <img 
+        src="https://themayakitchen.com/wp-content/uploads/2019/10/TURON.jpg" 
+        style="margin: 2rem auto 0 auto; display: block; width: 100%; max-width: calc(100vw - 10vw); height: 420px; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+        alt="Crispy golden-brown pieces of Lechon Kawali arranged on a light plate beside a small bowl of dipping sauce with sliced red chilies. The food is presented on a marble surface, creating a clean and inviting atmosphere. The scene conveys a sense of celebration and enjoyment."
+        style="max-width: 420px; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+      >
+    </div></h2>
+  <ol style="font-size:1.1rem; color:#000000;">
+    <b style="color:#2e7d32; font-size:1.5rem;">Step-by-Step Process:</b>
+    <li>Slice bananas and jackfruit, roll in sugar.</li>
+    <li>Wrap in spring roll wrapper.</li>
+    <li>Fry in hot oil until golden and crispy.</li>
+    <li>Drain and serve as a snack or dessert.</li>
+  </ol>
+  
+</div>
+
+<div class="tab-content-custom" id="tab-recipe-pochero">
+  <h2 style="font-size:3rem; color:#d84315;"> <button onclick="document.querySelector('.nav-link[data-tab=\'tab-recipes-custom\']').click();" class="back-arrow-btn" title="Back to Recipes">
+    <span class="material-icons">arrow_back</span>
+    </button> Pochero Recipe<div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+      <img 
+        src="https://kapampanganku.com/v3/wp-content/uploads/2021/02/pochero.png" 
+        style="margin: 2rem auto 0 auto; display: block; width: 100%; max-width: calc(100vw - 10vw); height: 420px; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+        alt="Crispy golden-brown pieces of Lechon Kawali arranged on a light plate beside a small bowl of dipping sauce with sliced red chilies. The food is presented on a marble surface, creating a clean and inviting atmosphere. The scene conveys a sense of celebration and enjoyment."
+        style="max-width: 420px; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+      >
+    </div></h2>
+  <ol style="font-size:1.1rem; color:#000000;">
+    <b style="color:#2e7d32; font-size:1.5rem;">Step-by-Step Process:</b>
+    <li>Boil beef with onions, peppercorns, and salt until tender.</li>
+    <li>Add plantains, potatoes, and vegetables.</li>
+    <li>Simmer until all ingredients are cooked through.</li>
+    <li>Serve with tomato sauce on the side.</li>
+  </ol>
+  
+</div>
+
+<div class="tab-content-custom" id="tab-recipe-ensaymada">
+  <h2 style="font-size:3rem; color:#d84315;"> <button onclick="document.querySelector('.nav-link[data-tab=\'tab-recipes-custom\']').click();" class="back-arrow-btn" title="Back to Recipes">
+    <span class="material-icons">arrow_back</span>
+    </button> Ensaymada Recipe<div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+      <img 
+        src="https://flouredframe.com/wp-content/uploads/2020/10/vegan-ensaymada-ft-image-1200x1200-1.jpg" 
+        style="margin: 2rem auto 0 auto; display: block; width: 100%; max-width: calc(100vw - 10vw); height: 420px; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+        alt="Crispy golden-brown pieces of Lechon Kawali arranged on a light plate beside a small bowl of dipping sauce with sliced red chilies. The food is presented on a marble surface, creating a clean and inviting atmosphere. The scene conveys a sense of celebration and enjoyment."
+        style="max-width: 420px; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+      >
+    </div></h2>
+  <ol style="font-size:1.1rem; color:#000000;">
+    <b style="color:#2e7d32; font-size:1.5rem;">Step-by-Step Process:</b>
+    <li>Mix flour, sugar, yeast, eggs, and butter to form a dough.</li>
+    <li>Let rise, then shape into coils and let rise again.</li>
+    <li>Bake until golden, then brush with butter and top with sugar and cheese.</li>
+    <li>Serve as a sweet snack or breakfast.</li>
+  </ol>
+  
+</div>
+
+<div class="tab-content-custom" id="tab-recipe-cassava-cake">
+  <h2 style="font-size:3rem; color:#d84315;"> <button onclick="document.querySelector('.nav-link[data-tab=\'tab-recipes-custom\']').click();" class="back-arrow-btn" title="Back to Recipes">
+    <span class="material-icons">arrow_back</span>
+    </button> Cassava Cake Recipe<div style="display: flex; justify-content: center; margin-bottom: 1.5rem;">
+      <img 
+        src="https://www.angsarap.net/wp-content/uploads/2012/01/cassava-cake-moms-version.jpg" 
+        style="margin: 2rem auto 0 auto; display: block; width: 100%; max-width: calc(100vw - 10vw); height: 420px; object-fit: cover; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+        alt="Crispy golden-brown pieces of Lechon Kawali arranged on a light plate beside a small bowl of dipping sauce with sliced red chilies. The food is presented on a marble surface, creating a clean and inviting atmosphere. The scene conveys a sense of celebration and enjoyment."
+        style="max-width: 420px; width: 100%; height: auto; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.10);"
+      >
+    </div></h2>
+  <ol style="font-size:1.1rem; color:#000000;">
+    <b style="color:#2e7d32; font-size:1.5rem;">Step-by-Step Process:</b>
+    <li>Mix grated cassava, coconut milk, condensed milk, and sugar.</li>
+    <li>Pour into a baking dish and bake until set.</li>
+    <li>Top with a custard layer and bake until golden.</li>
+    <li>Cool, slice, and serve as dessert.</li>
+  </ol>
+</div>
+
+<!-- Place this just before the closing </main> or </body> tag -->
+<footer class="site-footer">
+  &copy; 2025 Plated Thoughts &mdash; Filipino Food & Culture.
+  <br>
+  <a href="#">Home</a> | 
+  <a href="#">Restaurants</a> | 
+  <a href="#">Recipes</a>
+  <br>
+  <span style="font-size:0.95em; color:#4e342e;">Made with <span style="color:#d84315;">&#10084;</span> for Filipino cuisine.</span>
+</footer>
+<!-- Removed duplicate recipeDetails script block to fix redeclaration error -->
+<script>
+// Enhance recipe tabs with ingredients and history
+const recipeDetails = {
+  "lechon-kawali": {
+    ingredients: [
+      "1 kg pork belly",
+      "Salt and pepper",
+      "4 cloves garlic, crushed",
+      "2 bay leaves",
+      "Water for boiling",
+      "Oil for deep frying"
+    ],
+    history: "Lechon Kawali is a Filipino crispy deep-fried pork belly dish. Its roots trace back to Spanish colonial times and festive celebrations. Unlike whole lechon, this version is easier to prepare at home and is a popular comfort food."
+  },
+  "halo-halo": {
+    ingredients: [
+      "Shaved ice",
+      "Evaporated milk",
+      "Sweetened banana (saba), jackfruit, red mung beans",
+      "Nata de coco, macapuno, kaong",
+      "Leche flan",
+      "Ube halaya (purple yam)",
+      "Pinipig or rice crispies (optional)",
+      "Ice cream (ube or vanilla)"
+    ],
+    history: "Halo-Halo, meaning 'mix-mix', is a colorful Filipino dessert that combines shaved ice, milk, and a variety of sweetened fruits and beans. It is a summer staple and reflects the country's love for creative, refreshing treats."
+  },
+  "kare-kare": {
+    ingredients: [
+      "1 kg oxtail or beef shank",
+      "Peanut butter (or ground roasted peanuts)",
+      "Annatto (achuete) for color",
+      "Eggplant, pechay (bok choy), string beans",
+      "Banana heart (optional)",
+      "Garlic and onion",
+      "Bagoong (fermented shrimp paste), for serving"
+    ],
+    history: "Kare-Kare is a rich peanut stew believed to have originated from Pampanga. It is a highlight of Filipino feasts and is often served with bagoong. The dish is known for its unique peanut sauce and vibrant color."
+  },
+  "puto-bumbong": {
+    ingredients: [
+      "Glutinous rice (pirurutong or purple variety)",
+      "Banana leaves for serving",
+      "Butter or margarine",
+      "Grated coconut",
+      "Brown sugar or muscovado"
+    ],
+    history: "Puto Bumbong is a purple rice cake steamed in bamboo tubes, traditionally enjoyed after Simbang Gabi (night mass) during the Christmas season. Its unique preparation and festive association make it a beloved Filipino delicacy."
+  },
+  "bicol-express": {
+    ingredients: [
+      "500g pork belly, sliced",
+      "2 cups coconut milk",
+      "1 cup coconut cream",
+      "Garlic, onion, and ginger",
+      "Green and red chili peppers",
+      "Shrimp paste (bagoong alamang)",
+      "Salt and pepper to taste"
+    ],
+    history: "Bicol Express is a spicy stew of pork, coconut milk, and chilies from the Bicol region, famous for its love of spicy food. The dish is named after the train that runs from Manila to Bicol."
+  },
+  "sinigang-na-baboy": {
+    ingredients: [
+      "1 kg pork (ribs or belly)",
+      "2 tomatoes, quartered",
+      "1 onion, sliced",
+      "Tamarind (or sinigang mix)",
+      "Radish, eggplant, string beans, okra",
+      "Fish sauce",
+      "Water"
+    ],
+    history: "Sinigang na Baboy is a classic Filipino sour soup made with pork and tamarind. Its tangy broth and fresh vegetables make it a comforting staple in Filipino households."
+  },
+  "chicken-adobo": {
+    ingredients: [
+      "1 kg chicken, cut into pieces",
+      "1/2 cup vinegar",
+      "1/3 cup soy sauce",
+      "6 cloves garlic, crushed",
+      "2 bay leaves",
+      "1 tsp peppercorns",
+      "Oil for sautéing"
+    ],
+    history: "Chicken Adobo is considered the unofficial national dish of the Philippines. Its origins predate Spanish colonization, and its savory, tangy flavor comes from vinegar and soy sauce."
+  },
+  "pancit-canton": {
+    ingredients: [
+      "250g pancit canton noodles",
+      "100g pork, sliced",
+      "100g chicken, sliced",
+      "100g shrimp, peeled",
+      "Cabbage, carrots, green beans",
+      "Soy sauce, oyster sauce",
+      "Garlic, onion",
+      "Broth"
+    ],
+    history: "Pancit Canton is a stir-fried noodle dish inspired by Chinese cuisine. It is a birthday staple in the Philippines, symbolizing long life and prosperity."
+  },
+  "bibingka": {
+    ingredients: [
+      "2 cups rice flour",
+      "1 cup coconut milk",
+      "1 cup sugar",
+      "2 eggs",
+      "Banana leaves",
+      "Salted egg, cheese, butter"
+    ],
+    history: "Bibingka is a soft rice cake baked in clay pots and topped with salted egg and cheese. It is a Christmas favorite, often sold outside churches during the holiday season."
+  },
+  "lumpiang-shanghai": {
+    ingredients: [
+      "500g ground pork",
+      "1 carrot, grated",
+      "1 onion, chopped",
+      "2 cloves garlic, minced",
+      "Salt and pepper",
+      "Lumpia wrappers",
+      "Oil for frying"
+    ],
+    history: "Lumpiang Shanghai are Filipino spring rolls filled with ground pork and vegetables. They are a party favorite and always present at gatherings, influenced by Chinese cuisine."
+  },
+  "filipino-spaghetti": {
+    ingredients: [
+      "500g spaghetti noodles",
+      "300g ground pork",
+      "1 cup hotdogs, sliced",
+      "2 cups tomato sauce",
+      "1/2 cup banana ketchup",
+      "1/4 cup sugar",
+      "Cheese, grated",
+      "Garlic, onion"
+    ],
+    history: "Filipino Spaghetti is a sweet-style pasta with hotdogs and cheese, a Filipino adaptation of the Italian classic. It is especially popular at children's parties."
+  },
+  "menudo": {
+    ingredients: [
+      "500g pork, diced",
+      "200g pork liver, diced",
+      "2 potatoes, diced",
+      "2 carrots, diced",
+      "1 bell pepper, chopped",
+      "1 cup tomato sauce",
+      "Garlic, onion"
+    ],
+    history: "Menudo is a tomato-based stew with pork, liver, potatoes, and carrots. It is a staple at Filipino fiestas and family gatherings."
+  },
+  "turon": {
+    ingredients: [
+      "6 saba bananas, sliced",
+      "Jackfruit strips",
+      "Sugar",
+      "Spring roll wrappers",
+      "Oil for frying"
+    ],
+    history: "Turon is a sweet snack of caramelized banana and jackfruit wrapped in spring roll wrapper and fried. It is a popular street food and merienda."
+  },
+  "pochero": {
+    ingredients: [
+      "500g beef shank",
+      "2 plantains, sliced",
+      "2 potatoes, quartered",
+      "Cabbage, pechay",
+      "Tomato sauce",
+      "Onion, peppercorns"
+    ],
+    history: "Pochero is a hearty stew of beef, plantains, potatoes, and vegetables, influenced by Spanish cocido. It is a comfort food in many Filipino regions."
+  },
+  "ensaymada": {
+    ingredients: [
+      "3 cups flour",
+      "1/2 cup sugar",
+      "2 tsp yeast",
+      "3 eggs",
+      "1/2 cup butter",
+      "Cheese, grated"
+    ],
+    history: "Ensaymada is a soft, sweet bread topped with butter, sugar, and cheese. It is a Filipino adaptation of the Spanish ensaimada and is enjoyed as a snack or breakfast."
+  },
+  "cassava-cake": {
+    ingredients: [
+      "2 cups grated cassava",
+      "1 cup coconut milk",
+      "1 cup condensed milk",
+      "1/2 cup sugar",
+      "Custard topping"
+    ],
+    history: "Cassava Cake is a moist cake made from grated cassava, coconut milk, and condensed milk. It is a popular merienda or dessert in the Philippines."
+  }
+};
+
+// Add ingredients and history to each recipe tab
+document.addEventListener('DOMContentLoaded', function() {
+  Object.keys(recipeDetails).forEach(key => {
+    const tab = document.getElementById('tab-recipe-' + key);
+    if (tab) {
+      // Find the first <ol> (steps) in the tab
+      const stepsOl = tab.querySelector('ol');
+      if (!stepsOl) return;
+      // Insert ingredients before steps
+      const ingredientsList = document.createElement('ul');
+      ingredientsList.style.fontSize = '1.08rem';
+      ingredientsList.style.color = '#4e342e';
+      ingredientsList.style.marginBottom = '1.1rem';
+      ingredientsList.style.marginTop = '0.7rem';
+      recipeDetails[key].ingredients.forEach(ing => {
+        const li = document.createElement('li');
+        li.textContent = ing;
+        ingredientsList.appendChild(li);
+      });
+      const ingredientsTitle = document.createElement('b');
+      ingredientsTitle.textContent = 'Ingredients:';
+      ingredientsTitle.style.color = '#2e7d32';
+      stepsOl.parentNode.insertBefore(ingredientsTitle, stepsOl);
+      stepsOl.parentNode.insertBefore(ingredientsList, stepsOl);
+
+      // Insert history at the top
+      const historyDiv = document.createElement('div');
+      historyDiv.style.fontSize = '1.03rem';
+      historyDiv.style.color = '#795548';
+      historyDiv.style.marginBottom = '0.7rem';
+      historyDiv.style.marginTop = '0.2rem';
+      historyDiv.innerHTML = `<b>History:</b> ${recipeDetails[key].history}`;
+      tab.insertBefore(historyDiv, tab.firstElementChild.nextElementSibling);
+    }
+  });
+});
+</script>
